@@ -1,0 +1,17 @@
+#!/bin/zsh
+
+for d in */; do
+
+    if [[ -d "$d" && -e "$d/.git" ]]; then
+        cd $d;
+        DIFF=`git diff --shortstat`
+        BRANCH=`git branch --show-current`
+        REMOTE=`git config --get remote.origin.url`
+        REMOTEBASE=`basename $REMOTE`
+        printf "%-30s | %-6s | %-50s | %-35s \n" "$d" "${BRANCH}" "${REMOTEBASE}" "${DIFF}" 
+        cd ..
+    else
+        echo "$d"
+    fi
+
+done
