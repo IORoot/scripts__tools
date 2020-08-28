@@ -35,7 +35,8 @@ do
     IPPERCENT=`echo "scale=9;(100 / ${LINECOUNT}) * ${IPCOUNT}"  | bc`
     IPADDRESS=`echo $line | cut -d " " -f 2`
     grep "${IPADDRESS}" ${LOGFILE} > ${TEMPFILE2}
-    BYTECOUNT=`grep -o "\w[0-9]\+$" ${TEMPFILE2} | paste -sd+ | bc`
+    BYTECOUNT=`sed -n -e 's/.* [0-9]\{3\} \([[:digit:]]\+\).*/\1/p' ${TEMPFILE2} | paste -sd+ | bc`
+    
     printf "${CYAN}%-20s ${GREY}%-20s ${BLUE}%-20s ${GREY}%-20s \n" "${IPADDRESS}" "${IPCOUNT} requests" "${IPPERCENT}%" "${BYTECOUNT}"
 done < "${TEMPFILE}"
 
