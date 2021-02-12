@@ -1,0 +1,1 @@
+deploy/deploy_wp_copy_to_live.sh

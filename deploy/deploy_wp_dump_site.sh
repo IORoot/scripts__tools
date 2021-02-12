@@ -18,9 +18,9 @@ declare_output_filename() {
 
     if [[ ! -z "${WPDBNAME}" ]]; 
     then
-        TARFILE=${PWD}/${WPDBNAME}-`date '+%m%d%y'`.tar.gz
+        TARFILE=${PWD}/${WPDBNAME}-`date '+%m%d%y'`.tar
     else
-        TARFILE=${PWD}/wordpress-`date '+%m%d%y'`.tar.gz
+        TARFILE=${PWD}/wordpress-`date '+%m%d%y'`.tar
     fi
 
     cli_text "${CYAN}Output01: ${TARFILE}${NC}"
@@ -39,8 +39,20 @@ declare_sources() {
 
 
 compress_site(){
-    /usr/bin/tar -cvzf ${TARFILE} ${SOURCE1} ${SOURCE2} ${SOURCE3} & spinner
+    /usr/bin/tar -czf ${TARFILE}.gz ${SOURCE1} ${SOURCE2} ${SOURCE3} & spinner
     cli_text "${GREEN}Tar Gzipped Done.${NC}"
+}
+
+
+tar_all_files(){
+    /usr/bin/tar -cf ${TARFILE} ./*.sql.gz ./*.tar.gz
+    cli_text "${GREEN}Tarred all files into ${TARFILE} ${NC}"
+}
+
+move_to_tmp()
+{
+    /usr/bin/mv ${TARFILE} /tmp/${TARFILE}
+    cli_text "${GREEN}Moved to /tmp/${TARFILE} ${NC}"
 }
 
 
@@ -51,3 +63,5 @@ read_dbname
 declare_sources
 declare_output_filename
 compress_site
+tar_all_files
+move_to_tmp
