@@ -9,8 +9,6 @@ GREY='\033[0;90m'
 NC='\033[0m' # No Color
 
 
-
-
 # Echo to CLI
 cli_text() {
     if [ "$#" -eq 1 ]; then
@@ -26,6 +24,11 @@ cli_text() {
 cli_header() {
     printf "${RED}Wordpress MySQL Dump \n"
     echo "----------------------------------------"
+}
+
+check_user() {
+    USER=`whoami`
+    cli_text "CYAN" "You will probably need root access for this. You are: "${USER}
 }
 
 
@@ -50,17 +53,18 @@ read_wp_config_variables() {
 
 
 create_mysql_filename() {
-    OUTFILE=/tmp/${WPDBNAME}-`date '+%m%d%y'`.sql.gz
+    OUTFILE=./${WPDBNAME}-`date '+%m%d%y'`.sql.gz
 }
 
 
 dump_database() {
-    mysqldump -u${WPDBUSER} -p${WPDBPASS} ${WPDBNAME}  | gzip > ${OUTFILE}
+    mysqldump --no-tablespaces -u${WPDBUSER} -p${WPDBPASS} ${WPDBNAME}  | gzip > ${OUTFILE}
     cli_text "DB Dumped to: ${OUTFILE}"
 }
 
 
 cli_header
+check_user
 check_wp_config_exists
 read_wp_config_variables
 create_mysql_filename
