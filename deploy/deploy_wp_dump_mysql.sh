@@ -26,6 +26,23 @@ cli_header() {
     echo "----------------------------------------"
 }
 
+
+spinner()
+{
+    local pid=$!
+    local delay=0.75
+    local spinstr='|/-\'
+    while [ "$(ps a | awk '{print $1}' | grep $pid)" ]; do
+        local temp=${spinstr#?}
+        printf " [%c]  " "$spinstr"
+        local spinstr=$temp${spinstr%"$temp"}
+        sleep $delay
+        printf "\b\b\b\b\b\b"
+    done
+    printf "    \b\b\b\b"
+}
+
+
 check_user() {
     USER=`whoami`
     cli_text "CYAN" "You will probably need root access for this. You are: "${USER}
@@ -48,7 +65,7 @@ read_wp_config_variables() {
     WPDBUSER=`cat wp-config.php | grep DB_USER | cut -d \' -f 4`
     WPDBPASS=`cat wp-config.php | grep DB_PASSWORD | cut -d \' -f 4`
 
-    cli_text "BLUE" "${BLUE}DB:${GREEN}$WPDBNAME ${BLUE}USER:${GREEN}$WPDBUSER ${BLUE}PASS:${GREEN}$WPDBPASS" 
+    cli_text "BLUE" "${NC}DB:${GREEN}$WPDBNAME ${NC}USER:${GREEN}$WPDBUSER ${NC}PASS:${GREEN}$WPDBPASS${NC}" 
 }
 
 
@@ -58,7 +75,7 @@ create_mysql_filename() {
 
 
 dump_database() {
-    mysqldump --no-tablespaces -u${WPDBUSER} -p${WPDBPASS} ${WPDBNAME}  | gzip > ${OUTFILE}
+    mysqldump --no-tablespaces -u${WPDBUSER} -p${WPDBPASS} ${WPDBNAME}  | gzip > ${OUTFILE} & spinner
     cli_text "DB Dumped to: ${OUTFILE}"
 }
 
