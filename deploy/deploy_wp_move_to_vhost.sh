@@ -39,7 +39,7 @@ ssh_move_to_vhost() {
         ssh ${TARGET} "mv /tmp/${DB_FILES} ${WWW}${VHOST}/;" & spinner
     fi
 
-    if [[ ! -z "${DB_SITE_FILESFILES}" ]]; 
+    if [[ ! -z "${SITE_FILES}" ]]; 
     then
         cli_text "${GREEN}Moving SITE Files to ${WWW}${VHOST}/ ${NC}"
         ssh ${TARGET} "mv /tmp/${SITE_FILES} ${WWW}${VHOST}/;" & spinner
