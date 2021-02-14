@@ -62,3 +62,7 @@ check_user() {
     USER=`whoami`
     cli_text "CYAN" "You will probably need root access for this. You are: "${USER}
 }
+
+read_dbname() {
+    WPDBNAME=`cat wp-config.php | grep DB_NAME | cut -d \' -f 4`
+}

@@ -9,10 +9,6 @@ import_common() {
 }
 
 
-read_dbname() {
-    WPDBNAME=`cat wp-config.php | grep DB_NAME | cut -d \' -f 4`
-}
-
 
 declare_output_filename() {
 
@@ -20,7 +16,8 @@ declare_output_filename() {
     then
         TARFILE=${WPDBNAME}-`date '+%y%m%d'`.tar
     else
-        TARFILE=wordpress-`date '+%y%m%d'`.tar
+        cli_text "${RED}No WP DB Found.${NC}"
+        exit 1
     fi
 
     cli_text "${CYAN}Output01: ${TARFILE}${NC}"
@@ -44,6 +41,7 @@ compress_site(){
 
 import_common
 cli_header "Wordpress WP-Content Dump"
+check_wp_config_exists
 read_dbname
 declare_sources
 declare_output_filename

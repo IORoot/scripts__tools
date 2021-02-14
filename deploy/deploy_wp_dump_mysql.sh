@@ -16,7 +16,7 @@ read_wp_config_variables() {
 
 
 create_mysql_filename() {
-    OUTFILE=/tmp/${WPDBNAME}-`date '+%m%d%y'`.sql.gz
+    OUTFILE=/tmp/${WPDBNAME}-`date '+%y%m%d'`.sql.gz
 }
 
 
@@ -29,8 +29,8 @@ dump_database() {
 
 import_common
 cli_header "Wordpress MySQL Dump"
-check_user
 check_wp_config_exists
+check_user
 read_wp_config_variables
 create_mysql_filename
 dump_database
