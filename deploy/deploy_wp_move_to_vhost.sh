@@ -1,6 +1,7 @@
 #!/bin/bash
 
 PWD=`/bin/pwd`
+WWW="/var/www/vhosts/"
 
 # Import common functions.
 import_common() {
@@ -11,7 +12,7 @@ import_common
 
 
 # Must have destination
-if [ "$#" -ne 1 ]; then
+if [ "$#" -ne 2 ]; then
     cli_text "RED" "Usage: $0 USER@TARGET VHOST" >&2
     exit 1
 fi
@@ -32,10 +33,19 @@ declare_input_filenames() {
 
 
 ssh_move_to_vhost() {
-    ssh ${TARGET} "mv /tmp/${DB_FILES} /var/www/vhosts/${VHOST}/; mv /tmp/${SITE_FILES} /var/www/vhosts/${VHOST}/"
+    if [[ ! -z "${DB_FILES}" ]]; 
+        cli_text "${GREEN}Moving DB Files to ${WWW}${VHOST}/ ${NC}"
+        ssh ${TARGET} "mv /tmp/${DB_FILES} ${WWW}${VHOST}/;" & spinner
+    fi
+
+    if [[ ! -z "${DB_SITE_FILESFILES}" ]]; 
+        cli_text "${GREEN}Moving SITE Files to ${WWW}${VHOST}/ ${NC}"
+        ssh ${TARGET} "mv /tmp/${SITE_FILES} ${WWW}${VHOST}/;" & spinner
+    fi
 }
 
 
 cli_header "SSH Moving files to vHost directory"
+read_dbname
 declare_input_filenames
 ssh_move_to_vhost
