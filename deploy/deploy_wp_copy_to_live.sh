@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# STEP 03.
+
 PWD=`/bin/pwd`
 
 # Import common functions.

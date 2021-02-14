@@ -1,5 +1,9 @@
 #!/bin/bash
 
+
+# STEP 01.
+
+
 # Import common functions.
 import_common() {
     DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"

@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# STEP 04.
+
 PWD=`/bin/pwd`
 WWW="/var/www/vhosts/"
 

@@ -1,0 +1,1 @@
+deploy/deploy_wp_gunzip_remote_files.sh
