@@ -16,7 +16,7 @@ read_wp_config_variables() {
 
 
 create_mysql_filename() {
-    OUTFILE=./wp-content/${WPDBNAME}-`date '+%m%d%y'`.sql.gz
+    OUTFILE=/tmp/${WPDBNAME}-`date '+%m%d%y'`.sql.gz
 }
 
 

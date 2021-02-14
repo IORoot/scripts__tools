@@ -30,31 +30,16 @@ declare_output_filename() {
 declare_sources() {
     SOURCE1=${PWD}/wp-content
     SOURCE2=${PWD}/wp-config.php
-    SOURCE3=${PWD}/*.sql.gz
 
     cli_text "Source01: ${SOURCE1}"
     cli_text "Source02: ${SOURCE2}"
-    cli_text "Source03: ${SOURCE3}"
 }
 
 
 compress_site(){
-    /usr/bin/tar -czf ${PWD}/${TARFILE}.gz ${SOURCE1} ${SOURCE2} ${SOURCE3} & spinner
-    cli_text "${GREEN}Tar Gzipped Done.${NC}"
+    /usr/bin/tar -czf /tmp/${TARFILE}.gz ${SOURCE1} ${SOURCE2} & spinner
+    cli_text "${GREEN}Tarred all files into /tmp/${TARFILE}.gz ${NC}"
 }
-
-
-tar_all_files(){
-    /usr/bin/tar -cf ${PWD}/${TARFILE} ./*.sql.gz ./*.tar.gz
-    cli_text "${GREEN}Tarred all files into ${TARFILE} ${NC}"
-}
-
-move_to_tmp()
-{
-    /usr/bin/mv ${PWD}/${TARFILE} /tmp/${TARFILE}
-    cli_text "${GREEN}Moved to /tmp/${TARFILE} ${NC}"
-}
-
 
 
 import_common
@@ -63,5 +48,3 @@ read_dbname
 declare_sources
 declare_output_filename
 compress_site
-tar_all_files
-move_to_tmp
