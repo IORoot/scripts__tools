@@ -34,11 +34,13 @@ declare_input_filenames() {
 
 ssh_move_to_vhost() {
     if [[ ! -z "${DB_FILES}" ]]; 
+    then
         cli_text "${GREEN}Moving DB Files to ${WWW}${VHOST}/ ${NC}"
         ssh ${TARGET} "mv /tmp/${DB_FILES} ${WWW}${VHOST}/;" & spinner
     fi
 
     if [[ ! -z "${DB_SITE_FILESFILES}" ]]; 
+    then
         cli_text "${GREEN}Moving SITE Files to ${WWW}${VHOST}/ ${NC}"
         ssh ${TARGET} "mv /tmp/${SITE_FILES} ${WWW}${VHOST}/;" & spinner
     fi
