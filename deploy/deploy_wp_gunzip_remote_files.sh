@@ -29,11 +29,16 @@ ssh_unzip_remote_files() {
 
 uncompress_tar_file() {
     cli_text "${GREEN}Untarring tar files in ${WWW}${VHOST}/ ${NC}"
-    ssh ${TARGET} "sudo -s bash -c \"tar -xf ${WWW}${VHOST}/*.tar\"" & spinner
-    # ssh ${TARGET} "tar -xf ${WWW}${VHOST}/*.tar" & spinner
+    ssh ${TARGET} "cd ${WWW}${VHOST}; tar -xf *.tar;" & spinner
+}
+
+change_ownership() {
+    cli_text "${GREEN}Changing owner to www-data:www-data ${NC}"
+    ssh ${TARGET} "cd ${WWW}${VHOST}; chown -Rf www-data:www-data wp-con*" & spinner  
 }
 
 
 cli_header "Unzipping Remote Files"
 ssh_unzip_remote_files
 uncompress_tar_file
+change_ownership
