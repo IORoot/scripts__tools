@@ -23,12 +23,14 @@ VHOST=$2
 
 ssh_unzip_remote_files() {
     cli_text "${GREEN}Unzipping files in ${WWW}${VHOST}/ ${NC}"
-    ssh ${TARGET} "gunzip ${WWW}${VHOST}/*.gz" & spinner
+    ssh ${TARGET} "sudo -s bash -c \"gunzip ${WWW}${VHOST}/*.gz\"" & spinner
+    # ssh ${TARGET} "gunzip ${WWW}${VHOST}/*.gz" & spinner
 }
 
 uncompress_tar_file() {
     cli_text "${GREEN}Untarring tar files in ${WWW}${VHOST}/ ${NC}"
-    ssh ${TARGET} "tar -xf ${WWW}${VHOST}/*.tar" & spinner
+    ssh ${TARGET} "sudo -s bash -c \"tar -xf ${WWW}${VHOST}/*.tar\"" & spinner
+    # ssh ${TARGET} "tar -xf ${WWW}${VHOST}/*.tar" & spinner
 }
 
 
