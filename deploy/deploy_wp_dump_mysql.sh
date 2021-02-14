@@ -3,7 +3,7 @@
 # Import common functions.
 import_common() {
     DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
-    source ${DIR}/deploy_functions.sh   
+    source ${DIR}/deploy/deploy_functions.sh   
 }
 
 read_wp_config_variables() {
