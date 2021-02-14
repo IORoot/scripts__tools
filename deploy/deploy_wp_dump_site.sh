@@ -27,8 +27,8 @@ declare_output_filename() {
 
 
 declare_sources() {
-    SOURCE1=${PWD}/wp-content
-    SOURCE2=${PWD}/wp-config.php
+    SOURCE1=./wp-content
+    SOURCE2=./wp-config.php
 
     cli_text "Source01: ${SOURCE1}"
     cli_text "Source02: ${SOURCE2}"
