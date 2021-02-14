@@ -22,7 +22,7 @@ declare_output_filename() {
         exit 1
     fi
 
-    cli_text "${CYAN}Output01: ${TARFILE}${NC}"
+    cli_text "${CYAN}Output01: ${TARFILE}.gz${NC}"
 }
 
 
@@ -36,7 +36,7 @@ declare_sources() {
 
 
 compress_site(){
-    /usr/bin/tar -czf /tmp/${TARFILE}.gz ${SOURCE1} ${SOURCE2} & spinner
+    /usr/bin/tar -czf /tmp/${TARFILE}.gz -C ${PWD} ${SOURCE1} ${SOURCE2} & spinner
     cli_text "${GREEN}Tarred all files into /tmp/${TARFILE}.gz ${NC}"
 }
 
