@@ -31,17 +31,19 @@ declare_input_filenames() {
 
 rsync_files() {
 
-    rsync -a /tmp/${DB_FILES} ${TARGET}:/tmp
-    cli_text "${GREEN}DB Files sent to ${TARGET}:/tmp/${DB_FILES} ${NC}"
+    cli_text "${GREEN}Syncing DB Files to ${TARGET}:/tmp/${DB_FILES} ${NC}"
+    rsync -a /tmp/${DB_FILES} ${TARGET}:/tmp & spinner
+    cli_text "${GREEN}DB Files sent. ${NC}"
 
-    rsync -a /tmp/${SITE_FILES} ${TARGET}:/tmp
-    cli_text "${GREEN}SITE Files sent to ${TARGET}:/tmp/${DB_FILES} ${NC}"
+    cli_text "${GREEN}Syncing SITE Files to ${TARGET}:/tmp/${DB_FILES} ${NC}"
+    rsync -a /tmp/${SITE_FILES} ${TARGET}:/tmp & spinner
+    cli_text "${GREEN}SITE Files sent. ${NC}"
     
 }
 
 
-check_wp_config_exists
 cli_header "rSync Dumps to Remote Target"
+check_wp_config_exists
 read_dbname
 declare_input_filenames
 rsync_files
