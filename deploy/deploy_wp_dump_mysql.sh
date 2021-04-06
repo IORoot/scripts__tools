@@ -22,7 +22,7 @@ create_mysql_filename() {
 
 
 dump_database() {
-    mysqldump --no-tablespaces -u${WPDBUSER} -p${WPDBPASS} ${WPDBNAME}  | gzip > ${OUTFILE} & spinner
+    MYSQL_PWD=${WPDBPASS} mysqldump --no-tablespaces -u${WPDBUSER} ${WPDBNAME}  | gzip > ${OUTFILE} & spinner
     cli_text "DB Dumped to: ${OUTFILE}"
 }
 
