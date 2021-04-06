@@ -58,6 +58,9 @@ check_wp_config_exists() {
 }
 
 
+
+
+
 check_user() {
     USER=`whoami`
     cli_text "CYAN" "You will probably need root access for this. You are: "${USER}

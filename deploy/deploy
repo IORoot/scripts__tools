@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Import common functions
+source deploy_functions.sh
+
+check_wp_config_exists
+
+# read .deploy.json file
+source deploy_read_config.sh
+
+# dump mysql
+source deploy_wp_dump_mysql.sh

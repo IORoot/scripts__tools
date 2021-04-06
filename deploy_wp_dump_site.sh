@@ -1,1 +1,0 @@
-deploy/deploy_wp_dump_site.sh
