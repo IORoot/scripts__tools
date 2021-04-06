@@ -32,11 +32,11 @@ spinner()
 # Echo to CLI
 cli_text() {
     if [ "$#" -eq 1 ]; then
-        printf " - ${NC} $1 \n"
+        printf "${NC} $1 \n"
     fi
     if [ "$#" -eq 2 ]; then
         COLOUR=$1
-        printf " - ${!COLOUR} $2 \n"
+        printf "${!COLOUR} $2 \n"
     fi
 }
 
@@ -59,13 +59,31 @@ check_wp_config_exists() {
 
 
 
+# Read the Wordpress config variables from wp-config
+read_wp_config_variables() {
+    WPDBNAME=`cat wp-config.php | grep "^define('DB_NAME" | cut -d \' -f 4`
+    WPDBUSER=`cat wp-config.php | grep "^define('DB_USER" | cut -d \' -f 4`
+    WPDBPASS=`cat wp-config.php | grep "^define('DB_PASSWORD" | cut -d \' -f 4`
+
+    cli_text "${NC}DB:${GREEN}$WPDBNAME" 
+    cli_text "${NC}USER:${GREEN}$WPDBUSER" 
+    cli_text "${NC}PASS:${GREEN}$WPDBPASS${NC}" 
+}
+
+
+
+declare_input_filenames() {
+
+    if [[ ! -z "${WPDBNAME}" ]]; 
+    then
+        DB_FILES=${WPDBNAME}-`date '+%y%m%d'`.sql.gz
+        SITE_FILES=${WPDBNAME}-`date '+%y%m%d'`.tar.gz
+    fi
+    
+}
 
 
 check_user() {
     USER=`whoami`
     cli_text "CYAN" "You will probably need root access for this. You are: "${USER}
-}
-
-read_dbname() {
-    WPDBNAME=`cat wp-config.php | grep DB_NAME | cut -d \' -f 4`
 }

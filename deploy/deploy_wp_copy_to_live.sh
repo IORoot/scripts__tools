@@ -1,35 +1,17 @@
 #!/bin/bash
 
-# STEP 03.
-
 PWD=`/bin/pwd`
 
 # Import common functions.
-import_common() {
-    DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
-    source ${DIR}/deploy/deploy_functions.sh   
-}
-import_common
+source deploy_functions.sh   
 
-
-
-# Must have destination
-if [ "$#" -ne 1 ]; then
-    cli_text "RED" "Usage: $0 USER@TARGET" >&2
+# Must have target 
+if [ -z "${TARGET}" ]; then
+    cli_text "RED" "No Target has been set" >&2
     exit 1
 fi
 
-TARGET=$1
 
-declare_input_filenames() {
-
-    if [[ ! -z "${WPDBNAME}" ]]; 
-    then
-        DB_FILES=${WPDBNAME}-`date '+%y%m%d'`.sql.gz
-        SITE_FILES=${WPDBNAME}-`date '+%y%m%d'`.tar.gz
-    fi
-
-}
 
 rsync_files() {
 
@@ -37,15 +19,13 @@ rsync_files() {
     rsync -a /tmp/${DB_FILES} ${TARGET}:/tmp & spinner
     cli_text "${GREEN}DB Files sent. ${NC}"
 
-    cli_text "${GREEN}Syncing SITE Files to ${TARGET}:/tmp/${DB_FILES} ${NC}"
+    cli_text "${GREEN}Syncing SITE Files to ${TARGET}:/tmp/${SITE_FILES} ${NC}"
     rsync -a /tmp/${SITE_FILES} ${TARGET}:/tmp & spinner
     cli_text "${GREEN}SITE Files sent. ${NC}"
     
 }
 
 
-cli_header "rSync Dumps to Remote Target"
-check_wp_config_exists
-read_dbname
+cli_header "rSync to Remote Target"
 declare_input_filenames
 rsync_files

@@ -15,6 +15,8 @@ read_deploy_json()
     cli_text "GREEN" ".deploy.json Found."
 
     TARGET="$( jq -r '.target' "$FILE" )"
+    VHOST="$( jq -r '.vhost' "$FILE" )"
+    SOURCE=( $(jq -r '.source[]' "$FILE") )
 }
 
 read_deploy_json
