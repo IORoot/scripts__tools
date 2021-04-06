@@ -25,6 +25,10 @@ print_usage()
         "/wp-content"
     ]   
 }"
+    cli_text ""
+
+    cli_header "Requires"
+    cli_text "jq tool -  sudo apt-get install jq"
 
     
 }
