@@ -1,0 +1,13 @@
+#!/bin/bash
+
+cd ~/code/LondonParkour.com/DEPLOY/STAGING
+
+stage.sh dev.londonparkour.com
+
+git submodule update --recursive --remote
+
+git add .
+
+git commit -m "deploy to staging server"
+
+echo "Complete deploy with : git push"
