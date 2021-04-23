@@ -10,4 +10,4 @@ git add .
 
 git commit -m "deploy to staging server"
 
-echo "Complete deploy with : git push"
+git push origin master
