@@ -1,5 +1,11 @@
 #!/bin/bash
 
+if [ -z $1 ]; then 
+    BRANCH="master"
+else 
+    BRANCH=$1;
+fi
+
 cd ~/code/LondonParkour.com/DEPLOY/STAGING
 
 stage.sh dev.londonparkour.com
@@ -10,4 +16,8 @@ git add .
 
 git commit -m "deploy to staging server"
 
-git push origin master
+git push origin $BRANCH
+
+echo "Post-Deploy Tasks."
+echo "1. Manually login to GCal Sync OAUTH."
+echo "2. Enter License into WP Real Media Library Plugin."
