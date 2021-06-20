@@ -48,11 +48,11 @@ POWERLEVEL9K_VCS_UNTRACKED_ICON='\uf79f 'export PATH="/usr/local/opt/php@7.4/bin
 source ~/.secrets
 
 # ALIASES
-source ~/scripts/zsh/aliases.sh
+source ~/scripts__tools/scripts/zsh/aliases.sh
 
 # PATHS
-source ~/scripts/zsh/path.sh
+source ~/scripts__tools/scripts/zsh/path.sh
 
 # SYMLINKS
-source ~/scripts/zsh/symlinks.sh
+source ~/scripts__tools/scripts/zsh/symlinks.sh
 
