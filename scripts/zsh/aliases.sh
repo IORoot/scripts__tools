@@ -59,3 +59,4 @@ alias reload="source ~/.zshrc"
 # EXA
 alias ll="exa --header --long --git --icons"
 alias l="exa --header --long --git --tree --level=2 --icons"
+
