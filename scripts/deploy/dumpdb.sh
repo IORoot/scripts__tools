@@ -1,5 +1,4 @@
 #!/bin/bash
-  
 
 cli_colours() {
     # Terminal Colours
