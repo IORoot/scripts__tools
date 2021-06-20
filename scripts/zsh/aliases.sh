@@ -49,3 +49,9 @@ alias purun="phpunit --testdox --coverage-html tests/report"
 
 # VAGRANT
 alias cdvagrant="cd /Users/andrewpearson/Storage/Code/VMs/vagrant"
+
+# DIRECTORIES
+alias cdbin="cd /usr/local/bin"
+
+# ZSH
+alias reload="source ~/.zshrc"
