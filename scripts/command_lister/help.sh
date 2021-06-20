@@ -1,6 +1,9 @@
 #!/bin/bash
 
-COMMANDFOLDER='./commands'
+# Grab the symlinks REAL location, grab the folder too.
+SCRIPT_DIR=`readlink \`which help\``
+DIRNAME=`dirname $SCRIPT_DIR`
+COMMANDFOLDER="${DIRNAME}/commands"
 
 # Color in BASH
 # https://stackoverflow.com/questions/5947742/how-to-change-the-output-color-of-echo-in-linux
@@ -16,11 +19,11 @@ CYAN='\033[0;36m'
 GREY='\033[0;90m'
 NC='\033[0m' # No Color
 
-printf "${RED}ThirtyThree's${NC} Command List \n\n"
+printf "${RED}Andy P's${NC} Command List \n\n"
 
 printf "${GREEN}Options: \n"
 echo "----------------------------------------"
-printf "${NC}./33 list \n\n"
+printf "${NC}./help list \n\n"
 
 printf "${GREEN}Available commands: \n"
 echo "----------------------------------------"

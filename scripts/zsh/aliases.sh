@@ -55,3 +55,7 @@ alias cdbin="cd /usr/local/bin"
 
 # ZSH
 alias reload="source ~/.zshrc"
+
+# EXA
+alias ll="exa --header --long --git --icons"
+alias lt="exa --header --long --git --tree --level=2 --icons"
