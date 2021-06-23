@@ -62,7 +62,6 @@ if which exa >/dev/null; then
     alias l="exa --header --long --git --tree --level=2 --icons"
 fi
 
-
 # System-specified Aliases
 if [[ -f "~/aliases.sh" ]]
 then
