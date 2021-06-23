@@ -60,3 +60,10 @@ alias reload="source ~/.zshrc"
 alias ll="exa --header --long --git --icons"
 alias l="exa --header --long --git --tree --level=2 --icons"
 
+
+
+# System-specified Aliases
+if [[ -f "~/aliases.sh" ]]
+then
+    source ~/aliases.sh
+fi

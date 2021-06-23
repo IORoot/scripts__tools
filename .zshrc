@@ -55,4 +55,3 @@ source ~/scripts__tools/scripts/zsh/path.sh
 
 # SYMLINKS
 source ~/scripts__tools/scripts/zsh/symlinks.sh
-
