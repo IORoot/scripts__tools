@@ -23,13 +23,6 @@ alias search="find . | grep"
 alias hunt="grep -rnw . -e "
 alias top5='du -a . | sort -n -r | head -n 5'
 
-# SHORTCUTS
-alias clearlog="rm /Users/andrewpearson/Storage/Code/VMs/dev.londonparkour.com/dev.londonparkour.com/wp-content/debug.log"
-alias logs="cd /Users/andrewpearson/Storage/Code/VMs/dev.londonparkour.com/dev.londonparkour.com/wp-content/"
-alias plug="cd /Users/andrewpearson/Storage/Code/VMs/dev.londonparkour.com/dev.londonparkour.com/wp-content/plugins"
-alias theme="cd /Users/andrewpearson/Storage/Code/VMs/dev.londonparkour.com/dev.londonparkour.com/wp-content/themes/londonparkour.com_v4"
-alias watch="/usr/local/bin/sass --watch /Users/andrewpearson/Storage/Code/VMs/dev.londonparkour.com/dev.londonparkour.com/wp-content/themes/londonparkour.com_v4/sass/style.scss /Users/andrewpearson/Storage/Code/VMs/dev.londonparkour.com/dev.londonparkour.com/wp-content/themes/londonparkour.com_v4/style.css"
-
 # Work In Progress WIP
 alias wipp='WIP=`pwd`'
 alias wip='cd "$WIP"'

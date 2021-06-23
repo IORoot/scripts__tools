@@ -39,6 +39,11 @@ plugins=(
     vscode
 )
 
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+setopt appendhistory
+
 source $ZSH/oh-my-zsh.sh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
@@ -57,8 +62,11 @@ POWERLEVEL9K_VCS_BACKGROUND=236
 POWERLEVEL9K_VCS_UNTRACKED_ICON='\uf79f 'export PATH="/usr/local/opt/php@7.4/bin:$PATH"
 
 
-# SECRETS for TERRAFORM / DIGITALOCEAN
-source ~/.secrets
+# SECRETS for TERRAFORM / DIGITALOCEAN / ETC
+if [[ -f " ~/.secrets" ]]
+then
+  source ~/.secrets
+fi
 
 # ALIASES
 source ~/scripts__tools/scripts/zsh/aliases.sh
