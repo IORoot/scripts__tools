@@ -57,9 +57,10 @@ alias cdbin="cd /usr/local/bin"
 alias reload="source ~/.zshrc"
 
 # EXA
-alias ll="exa --header --long --git --icons"
-alias l="exa --header --long --git --tree --level=2 --icons"
-
+if which exa >/dev/null; then
+    alias ll="exa --header --long --git --icons"
+    alias l="exa --header --long --git --tree --level=2 --icons"
+fi
 
 
 # System-specified Aliases
