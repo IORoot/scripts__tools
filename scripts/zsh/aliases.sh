@@ -1,6 +1,6 @@
 # General
 alias config="code ~/.zshrc"
-alias lsalias="grep -in --color -e '^alias\s+*' ~/.zshrc | sed 's/alias //' | grep --color -e ':[a-z][a-z0-9]*'"
+alias aliasls="grep -in --color -e '^alias\s+*' ~/.zshrc | sed 's/alias //' | grep --color -e ':[a-z][a-z0-9]*'"
 alias ll="ls -la"
 
 # Software
