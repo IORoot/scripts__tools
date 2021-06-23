@@ -31,6 +31,12 @@ plugins=(
     git
     zsh-autosuggestions
     zsh-syntax-highlighting
+    osx
+    composer
+    common-aliases
+    node
+    npm
+    vscode
 )
 
 source $ZSH/oh-my-zsh.sh
