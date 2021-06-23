@@ -58,8 +58,8 @@ alias reload="source ~/.zshrc"
 
 # EXA
 if which exa >/dev/null; then
-    alias ll="exa --header --long --git --icons"
-    alias l="exa --header --long --git --tree --level=2 --icons"
+    alias ll="exa --header --long --git --icons --all"
+    alias l="exa --header --long --git --tree --level=2 --icons --all"
 fi
 
 # System-specified Aliases
