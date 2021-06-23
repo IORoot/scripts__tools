@@ -1,10 +1,3 @@
-# System-specified script
-if [[ -f "~/.bashrc" ]]
-then
-    source ~/.bashrc
-fi
-
-
 # Enable Powerlevel10k instant prompt.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
@@ -76,3 +69,10 @@ source ~/scripts__tools/scripts/zsh/path.sh
 
 # SYMLINKS
 source ~/scripts__tools/scripts/zsh/symlinks.sh
+
+# KEEP AT BOTTOM
+# System-specified script for overrides
+if [[ -f "~/.bashrc" ]]
+then
+    source ~/.bashrc
+fi
