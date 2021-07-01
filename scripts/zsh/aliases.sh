@@ -18,6 +18,9 @@ alias gpp="find . -maxdepth 1 -mindepth 1 -type d -exec sh -c '(echo {} && cd {}
 alias gff="find . -maxdepth 1 -mindepth 1 -type d -exec sh -c '(echo {} && cd {} && git fetch)' \;"
 alias gss="find . -maxdepth 1 -mindepth 1 -type d -exec sh -c '(echo {} && cd {} && git -c color.status=always status -s)' \;"
 
+# VAGRANT
+alias cdv="cd /Users/andrewpearson/Storage/Code/VMs/vagrant/"
+
 # SEARCH
 alias search="find . | grep"
 alias hunt="grep -rnw . -e "

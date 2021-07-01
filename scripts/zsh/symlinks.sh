@@ -15,3 +15,8 @@ ln -sf ~/scripts__tools/scripts/ffmpeg/img2mp4 /usr/local/bin/img2mp4
 # logstats
 # helps diagnose IP addresses in an apache log file
 ln -sf ~/scripts__tools/scripts/log_stats/log_stats /usr/local/bin/log_stats
+
+# vagrant
+# quickly start and ssh into vagrant machines
+ln -sf ~/scripts__tools/scripts/vagrant/v.sh /usr/local/bin/v
+# ln -sf ~/scripts__tools/scripts/vagrant/vssh.sh /usr/local/bin/vssh

@@ -73,6 +73,9 @@ source ~/scripts__tools/scripts/zsh/path.sh
 # SYMLINKS
 source ~/scripts__tools/scripts/zsh/symlinks.sh
 
+# ENVIRONMENT VARIABLES
+source ~/scripts__tools/scripts/zsh/environment_variables.sh
+
 # KEEP AT BOTTOM
 # System-specified script for overrides
 if [[ -f "~/.bashrc" ]]
