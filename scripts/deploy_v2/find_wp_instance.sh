@@ -1,5 +1,4 @@
 #!/bin/bash
-
 source cli_colours.sh
 
 # Returns the first match path
