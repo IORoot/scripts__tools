@@ -1,9 +1,10 @@
 #!/bin/bash
 
-# Returns the first match path
+source cli_colours.sh
 
+# Returns the first match path
 if [ "$#" -ne 1 ]; then
-    echo "$0 [SEARCH]"
+    echo -e "$0 [SEARCH] - ${Orange} Search the /var/www tree to return the first WP folder that matches the parameter."
     exit 1
 fi
 
@@ -13,7 +14,9 @@ MATCH=`/usr/bin/find $DIR -maxdepth 3 -name wp-config.php | grep "${SEARCH}" | h
 
 if [ -z "$MATCH" ]
 then
+    echo "No match found in ${DIR}"
     exit
 else
+    export WP_PATH=$MATCH
     echo $MATCH
 fi
