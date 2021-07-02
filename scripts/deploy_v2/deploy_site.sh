@@ -1,11 +1,7 @@
 #!/bin/bash
 source cli_colours.sh
 
-    DB_NAME="1"
-    DB_USER="two"
-    DB_PASS="thrreeeee"
-
-    WP_PATH=`./find_wp_instance.sh`
+    WP_PATH=`./find_wp_instance.sh $1`
 
     echo $WP_PATH
 
