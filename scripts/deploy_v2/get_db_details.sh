@@ -2,12 +2,6 @@
 
 source cli_colours.sh
 
-if [ $# -eq 0 ] ; then
-    read_wpconfig_variables < /dev/stdin
-else
-    read_wpconfig_variables $1
-fi
-
 
 # Read the Wordpress config variables from wp-config
 read_wpconfig_variables() {
@@ -27,3 +21,11 @@ read_wpconfig_variables() {
 
     printf "${NC}Database:${Orange} %-30s ${NC}| Username:${Cyan} %-20s ${NC}| Password:${Red} %-20s \n" "${WP_DBNAME}" "${WP_DBUSER}" "${WP_DBPASS}"
 }
+
+
+
+if [ $# -eq 0 ] ; then
+    read_wpconfig_variables < /dev/stdin
+else
+    read_wpconfig_variables $1
+fi
