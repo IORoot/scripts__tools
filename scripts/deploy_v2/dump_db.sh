@@ -42,6 +42,7 @@ echo "one=$1\n"
 echo "two=$2\n"
 echo "three=$3\n"
 echo "all=$@"
+echo "PIPE=$PIPE"
 # Accept ALL Arguments
 override_env_variables
 check_parameters
