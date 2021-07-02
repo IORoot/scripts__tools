@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # General
 alias config="code ~/.zshrc"
 alias aliasls="grep -in --color -e '^alias\s+*' ~/.zshrc | sed 's/alias //' | grep --color -e ':[a-z][a-z0-9]*'"

@@ -56,7 +56,7 @@ POWERLEVEL9K_MACHINE_BACKGROUND=012
 POWERLEVEL9K_VCS_FOREGROUND=159
 POWERLEVEL9K_VCS_BACKGROUND=235
 POWERLEVEL9K_VCS_UNTRACKED_ICON='\uf79f 'export PATH="/usr/local/opt/php@7.4/bin:$PATH"
-
+POWERLEVEL9K_INSTANT_PROMPT=quiet
 
 # SECRETS for TERRAFORM / DIGITALOCEAN / ETC
 if [[ -f " ~/.secrets" ]]
@@ -64,17 +64,17 @@ then
   source ~/.secrets
 fi
 
+# ENVIRONMENT VARIABLES
+source ~/scripts__tools/scripts/zsh/environment_variables
+
 # ALIASES
-source ~/scripts__tools/scripts/zsh/aliases.sh
+source ~/scripts__tools/scripts/zsh/aliases
 
 # PATHS
-source ~/scripts__tools/scripts/zsh/path.sh
+source ~/scripts__tools/scripts/zsh/path
 
 # SYMLINKS
-source ~/scripts__tools/scripts/zsh/symlinks.sh
-
-# ENVIRONMENT VARIABLES
-source ~/scripts__tools/scripts/zsh/environment_variables.sh
+source ~/scripts__tools/scripts/zsh/symlinks
 
 # KEEP AT BOTTOM
 # System-specified script for overrides

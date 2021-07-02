@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # PUPPET
 export PATH=/opt/puppetlabs/puppet/bin:$PATH
 
