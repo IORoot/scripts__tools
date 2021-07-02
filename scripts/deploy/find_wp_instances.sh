@@ -10,18 +10,12 @@ fi
 
 DIR="/var/www"
 SEARCH=$1
+MATCH=`/usr/bin/find $DIR -maxdepth 3 -name wp-config.php | grep "${SEARCH}" | head -1`
 
-find_wordpress(){
-    MATCH=`/usr/bin/find $DIR -maxdepth 3 -name wp-config.php -print0 | grep "${SEARCH}" | head -1`
-
-    if [ -z "$MATCH" ]
-    then
-        exit
-    else
-        export WPPATH=$MATCH
-        echo $MATCH
-    fi
-}
-
-
-find_wordpress
+if [ -z "$MATCH" ]
+then
+    exit
+else
+    export WPPATH=$MATCH
+    echo $MATCH
+fi
