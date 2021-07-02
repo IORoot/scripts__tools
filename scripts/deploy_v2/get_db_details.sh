@@ -35,11 +35,5 @@ read_wpconfig_variables() {
 if [[ -p /dev/stdin ]]; then
     PIPE=$(cat -)
 fi
-ARGS=$#
-
-# Either the pipe or argument 1.
-if [ $# -eq 0 ] ; then
-    read_wpconfig_variables $PIPE
-else
-    read_wpconfig_variables $PIPE $ARGS
-fi
+# Accept ALL Arguments
+read_wpconfig_variables $PIPE $@
