@@ -2,14 +2,7 @@
 source cli_colours.sh
 
 
-override_env_variables(){
-
-    echo "one=$1\n"
-    echo "two=$2\n"
-    echo "three=$3\n"
-    echo "all=$@"
-    echo "PIPE=$PIPE"
-
+set_variables(){
     if [[ -n "$1" ]];then
         DB_NAME=$1
     fi
@@ -20,19 +13,16 @@ override_env_variables(){
 
     if [[ -n "$3" ]];then
         DB_PASS=$3
-    fi
-    
+    fi 
 }
 
-
-check_parameters(){
-
-    if [ "$#" -ne 3 ]; then
+check_variables(){
+    if [[ -z "$DB_NAME" ]] || [[ -z "$DB_USER" ]] || [[ -z "$DB_PASS" ]];then
         echo "$0 [DB_NAME] [DB_USER] [DB_PASS]"
         exit 1
     fi
-
 }
+
 
 
 
@@ -44,5 +34,5 @@ fi
 ARGS=$@
 
 # Accept ALL Arguments
-override_env_variables $PIPE $ARGS
-check_parameters
+set_variables $PIPE $ARGS
+check_variables
