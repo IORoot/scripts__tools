@@ -1,7 +1,6 @@
 #!/bin/bash
 
-# This sets single environment variable WPPATH to the first matching search
-# Also returns the match.
+# Returns the first match path
 
 if [ "$#" -ne 1 ]; then
     echo "$0 [SEARCH]"
@@ -16,6 +15,5 @@ if [ -z "$MATCH" ]
 then
     exit
 else
-    export WPPATH=$MATCH
     echo $MATCH
 fi
