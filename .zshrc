@@ -12,6 +12,9 @@ export ZSH=$HOME/.oh-my-zsh
 # ZSH
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
+# -f : foreground colour
+# -b : background colour
+# -t : text
 function prompt_machine() {
     p10k segment -f 200 -b 9 -t 'MacOS'
 }
@@ -46,7 +49,7 @@ source $ZSH/oh-my-zsh.sh
 # POWERLINE Customisation
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=4
 POWERLEVEL9K_SHORTEN_STRATEGY="truncate_to_last"
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=( os_icon machine dir vcs)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=( os_icon dir vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=( host context )
 POWERLEVEL9K_DIR_PATH_HIGHLIGHT_FOREGROUND=009
 POWERLEVEL9K_DIR_FOREGROUND=007
