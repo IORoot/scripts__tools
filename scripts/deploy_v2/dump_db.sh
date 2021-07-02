@@ -38,7 +38,10 @@ if [[ -p /dev/stdin ]]; then
     PIPE=$(cat -)
 fi
 
-
+echo "one=$1\n"
+echo "two=$2\n"
+echo "three=$3\n"
+echo "all=$@"
 # Accept ALL Arguments
 override_env_variables
 check_parameters
