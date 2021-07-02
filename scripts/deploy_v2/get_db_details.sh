@@ -5,13 +5,12 @@ source cli_colours.sh
 
 # Read the Wordpress config variables from wp-config
 read_wpconfig_variables() {
+    
     WP_PATH=$1
-
-    echo $WP_PATH
 
     if [ -z "$WP_PATH" ]
     then
-        echo "Please provide a PATH to a wordpress install."
+        echo "Please provide a PATH to a valid wordpress wp-config.php file."
     fi
 
     if [ ! -d "${WP_PATH}" ]; then
