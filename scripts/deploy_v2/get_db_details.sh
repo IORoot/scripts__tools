@@ -22,8 +22,7 @@ read_wpconfig_variables() {
     export WP_DBUSER=`cat $WP_PATH/wp-config.php | grep "DB_USER" | cut -d \' -f 4`
     export WP_DBPASS=`cat $WP_PATH/wp-config.php | grep "DB_PASSWORD" | cut -d \' -f 4`
 
-    printf " ${Cyan}--username=%s ${Red}--password=%s ${Orange}--database=%s \n" "${WP_DBUSER}" "${WP_DBPASS}" "${WP_DBNAME}" 
-    # printf "${NC}Database:${Orange}%-30s ${NC}| Username:${Cyan}%-20s ${NC}| Password:${Red}%-20s \n" "${WP_DBNAME}" "${WP_DBUSER}" "${WP_DBPASS}"
+    printf " ${NC}--username=${Cyan}%s ${NC}--password=${Red}%s ${NC}--database=${Orange}%s \n" "${WP_DBUSER}" "${WP_DBPASS}" "${WP_DBNAME}"
 }
 
 
