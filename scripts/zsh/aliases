@@ -38,8 +38,8 @@ alias io="ssh root@ioroot.com"
 alias igs="ssh root@157.245.42.123"
 
 # PUPPET
-alias papply="/opt/puppetlabs/bin/puppet apply --disable_warnings deprecations /etc/puppetlabs/code/environments/production/manifests/"
-alias cdpuppet="cd /etc/puppetlabs/code/environments/production"
+alias papply="/opt/puppetlabs/bin/puppet apply --disable_warnings deprecations /etc/puppetlabs/code/environments/production/manifests/";
+alias cdpuppet="cd /etc/puppetlabs/code/environments/production";
 
 # PHPUNIT
 alias pu="phpunit --testdox"

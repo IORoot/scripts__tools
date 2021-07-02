@@ -59,7 +59,8 @@ POWERLEVEL9K_VCS_UNTRACKED_ICON='\uf79f 'export PATH="/usr/local/opt/php@7.4/bin
 POWERLEVEL9K_INSTANT_PROMPT=quiet
 
 # SECRETS for TERRAFORM / DIGITALOCEAN / ETC
-if [[ -f " ~/.secrets" ]]
+$SECRETS
+if [[ -f "$SECRETS" ]]
 then
   source ~/.secrets
 fi
@@ -78,7 +79,8 @@ source ~/scripts__tools/scripts/zsh/symlinks
 
 # KEEP AT BOTTOM
 # System-specified script for overrides
-if [[ -f "~/.bashrc" ]]
+BASHRC=~/.bashrc
+if [[ -f "$BASHRC" ]]
 then
     source ~/.bashrc
 fi
