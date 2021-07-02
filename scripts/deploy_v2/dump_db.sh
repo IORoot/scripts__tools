@@ -4,12 +4,17 @@ source cli_colours.sh
 
 override_env_variables(){
 
+    echo "one=$1\n"
     if [[ -n "$1" ]];then
         DB_NAME=$1
     fi
+
+    echo "two=$2\n"
     if [[ -n "$2" ]];then
         DB_USER=$2
     fi
+
+    echo "three=$3\n"
     if [[ -n "$3" ]];then
         DB_PASS=$3
     fi
