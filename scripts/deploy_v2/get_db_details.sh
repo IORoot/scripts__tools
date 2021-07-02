@@ -1,6 +1,27 @@
 #!/bin/bash
 source cli_colours.sh
 
+# USAGE
+# -----------------------------------------------------------
+#
+# 1. Get 3 variables out, plus ENV Variables set.
+#
+# ./get_db_details.sh /var/www/vhosts/wordpress/
+#
+# -----------------------------------------------------------
+#
+# 2. Get MySQL string format out, plus ENV Variables set.
+#
+# ./get_db_details.sh /var/www/vhosts/wordpress/ mysql
+#
+# -----------------------------------------------------------
+# 
+# 3. Pipe in
+#
+# ./find_wp_instance.sh wordpress | ./get_db_details.sh mysql  
+#
+
+
 # Read the Wordpress config variables from wp-config
 read_wpconfig_variables() {
 
