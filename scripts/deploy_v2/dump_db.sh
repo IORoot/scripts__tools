@@ -23,6 +23,11 @@ check_variables(){
     fi
 }
 
+dump_database(){
+    echo $DB_NAME
+    echo $DB_USER
+    echo $DB_PASS
+}
 
 
 
