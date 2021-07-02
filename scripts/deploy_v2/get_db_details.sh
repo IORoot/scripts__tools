@@ -5,7 +5,7 @@ source cli_colours.sh
 
 # Read the Wordpress config variables from wp-config
 read_wpconfig_variables() {
-    
+
     WP_PATH=$1
 
     if [ -z "$WP_PATH" ]
@@ -22,7 +22,8 @@ read_wpconfig_variables() {
     export WP_DBUSER=`cat $WP_PATH/wp-config.php | grep "DB_USER" | cut -d \' -f 4`
     export WP_DBPASS=`cat $WP_PATH/wp-config.php | grep "DB_PASSWORD" | cut -d \' -f 4`
 
-    printf "${NC}Database:${Orange} %-30s ${NC}| Username:${Cyan} %-20s ${NC}| Password:${Red} %-20s \n" "${WP_DBNAME}" "${WP_DBUSER}" "${WP_DBPASS}"
+    printf " ${Cyan}--username=%s ${Red}--password=%s ${Orange}--database=%s \n" "${WP_DBUSER}" "${WP_DBPASS}" "${WP_DBNAME}" 
+    # printf "${NC}Database:${Orange}%-30s ${NC}| Username:${Cyan}%-20s ${NC}| Password:${Red}%-20s \n" "${WP_DBNAME}" "${WP_DBUSER}" "${WP_DBPASS}"
 }
 
 
