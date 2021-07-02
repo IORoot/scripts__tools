@@ -7,10 +7,9 @@ source cli_colours.sh
 read_wpconfig_variables() {
     WP_PATH=$1
 
-    if [ -d "${WP_PATH}" ] 
-    then
-        cd $WP_PATH
-    else
+    echo $WP_PATH
+
+    if [ ! -d "${WP_PATH}" ] 
         echo "Error: Directory ${WP_PATH} does not exist."
         exit
     fi
