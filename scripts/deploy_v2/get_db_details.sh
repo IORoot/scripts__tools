@@ -9,6 +9,11 @@ read_wpconfig_variables() {
 
     echo $WP_PATH
 
+    if [ -z "$WP_PATH" ]
+    then
+        echo "Please provide a PATH to a wordpress install."
+    fi
+
     if [ ! -d "${WP_PATH}" ]; then
         echo "Error: Directory ${WP_PATH} does not exist."
         exit
