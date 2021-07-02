@@ -22,9 +22,12 @@ read_wpconfig_variables() {
 }
 
 
+if [[ -p /dev/stdin ]]; then
+    PIPE=$(cat -)
+fi
 
 if [ $# -eq 0 ] ; then
-    read_wpconfig_variables < /dev/stdin
+    read_wpconfig_variables $PIPE
 else
     read_wpconfig_variables $1
 fi
