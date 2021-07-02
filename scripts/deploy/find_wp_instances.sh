@@ -9,7 +9,7 @@ fi
 
 DIR="/var/www"
 SEARCH=$1
-MATCH=`/usr/bin/find $DIR -maxdepth 3 -name wp-config.php | grep "${SEARCH}" | head -1`
+MATCH=`/usr/bin/find $DIR -maxdepth 3 -name wp-config.php | grep "${SEARCH}" | head -1 | xargs dirname`
 
 if [ -z "$MATCH" ]
 then
