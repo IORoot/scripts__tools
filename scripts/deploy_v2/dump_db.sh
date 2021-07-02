@@ -41,3 +41,4 @@ ARGS=$@
 # Accept ALL Arguments
 set_variables $PIPE $ARGS
 check_variables
+dump_database
