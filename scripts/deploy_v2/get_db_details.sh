@@ -20,8 +20,8 @@ read_wpconfig_variables() {
     export WP_DBUSER=`cat $WP_PATH/wp-config.php | grep "DB_USER" | cut -d \' -f 4`
     export WP_DBPASS=`cat $WP_PATH/wp-config.php | grep "DB_PASSWORD" | cut -d \' -f 4`
 
-
-    if [ $2 -eq "mysql" ]; then
+    # MYSQL="mysql"
+    if [ "$2" == "mysql" ]; then
         # Echo output the MYSQL String need for connection format
         printf " ${NC}--username=${Cyan}%s ${NC}--password=${Red}%s ${NC}--database=${Orange}%s \n" "${WP_DBUSER}" "${WP_DBPASS}" "${WP_DBNAME}"
     else
