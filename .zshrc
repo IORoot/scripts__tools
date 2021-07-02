@@ -79,8 +79,8 @@ source ~/scripts__tools/scripts/zsh/symlinks
 
 # KEEP AT BOTTOM
 # System-specified script for overrides
-BASHRC=~/.bashrc
-if [[ -f "$BASHRC" ]]
+CUSTOM=~/.zshrc.custom
+if [[ -f "$CUSTOM" ]]
 then
-    source ~/.bashrc
+    source ~/.zshrc.custom
 fi
