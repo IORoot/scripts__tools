@@ -18,18 +18,21 @@ read_wpconfig_variables() {
         exit
     fi
 
+    # Set Environment Variables
     export WP_DBNAME=`cat $WP_PATH/wp-config.php | grep "DB_NAME" | cut -d \' -f 4`
     export WP_DBUSER=`cat $WP_PATH/wp-config.php | grep "DB_USER" | cut -d \' -f 4`
     export WP_DBPASS=`cat $WP_PATH/wp-config.php | grep "DB_PASSWORD" | cut -d \' -f 4`
 
+    # Echo output the MYSQL String need for connection.
     printf " ${NC}--username=${Cyan}%s ${NC}--password=${Red}%s ${NC}--database=${Orange}%s \n" "${WP_DBUSER}" "${WP_DBPASS}" "${WP_DBNAME}"
 }
 
-
+# Accept a piped input.
 if [[ -p /dev/stdin ]]; then
     PIPE=$(cat -)
 fi
 
+# Either the pipe or argument 1.
 if [ $# -eq 0 ] ; then
     read_wpconfig_variables $PIPE
 else
