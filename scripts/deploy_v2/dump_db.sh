@@ -16,6 +16,7 @@ set_variables(){
     fi 
 }
 
+
 check_variables(){
     if [[ -z "$DB_NAME" ]] || [[ -z "$DB_USER" ]] || [[ -z "$DB_PASS" ]];then
         echo "$0 [DB_NAME] [DB_USER] [DB_PASS]"
@@ -23,10 +24,24 @@ check_variables(){
     fi
 }
 
+
+check_user() {
+    USER=`whoami`
+    printf "${Cyan}You need root access for this. You are: ${USER} \n"
+    if [ "$USER" != "root" ]; then
+        echo "Not root user. Exit."
+        exit 1
+    fi
+}
+
+
+set_output_filename() {
+    OUTFILE=./${DB_NAME}-`date '+%y%m%d'`.sql
+}
+
+
 dump_database(){
-    echo $DB_NAME
-    echo $DB_USER
-    echo $DB_PASS
+    MYSQL_PWD=${DB_PASS} mysqldump --no-tablespaces -u${DB_USER} ${DB_NAME}  > ${OUTFILE}
 }
 
 
@@ -35,10 +50,13 @@ dump_database(){
 if [[ -p /dev/stdin ]]; then
     PIPE=$(cat -)
 fi
-# All
+# All Arguments
 ARGS=$@
 
-# Accept ALL Arguments
+
+# List of commands to run
 set_variables $PIPE $ARGS
 check_variables
+check_user
+set_output_filename
 dump_database
