@@ -1,0 +1,4 @@
+Deploy
+get_db_details
+[WP_PATH]
+Reads the wp-config.php, sets ENV vars and prints mysql login details

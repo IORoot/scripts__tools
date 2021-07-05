@@ -1,0 +1,4 @@
+Web
+sitemap_urls
+[URL]
+Parse sitemap.xml file and return list of URLS

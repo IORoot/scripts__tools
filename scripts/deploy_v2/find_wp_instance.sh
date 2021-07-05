@@ -1,5 +1,5 @@
 #!/bin/bash
-source cli_colours.sh
+source cli_colours
 
 # Returns the first match path
 if [ "$#" -ne 1 ]; then

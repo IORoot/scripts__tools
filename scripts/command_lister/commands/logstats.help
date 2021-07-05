@@ -1,4 +1,4 @@
-APACHE
+Apache
 log_stats
-FILE
+[FILE]
 Top IPs within an Apache log file. 

@@ -1,0 +1,4 @@
+Deploy
+deploy_site
+[SEARCH]
+Wrapper for 'find_wp_instance', 'get_db_details' & 'dumpdb'

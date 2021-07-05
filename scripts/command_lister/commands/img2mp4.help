@@ -1,4 +1,4 @@
-FFMPEG
+FFMpeg
 img2mp4
-FILE
+[FILE]
 Converts and image into a 5 second 720p MP4 video.

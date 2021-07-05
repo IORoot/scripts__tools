@@ -1,0 +1,4 @@
+Deploy
+dump_db
+[DB] [USER] [PASS]
+Dumps the DB into current dir with datestamp

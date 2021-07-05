@@ -6,7 +6,7 @@ else
     BRANCH=$1;
 fi
 
-cd ~/code/LondonParkour.com/DEPLOY/STAGING
+cd ~/code/LondonParkour.com/DEPLOY/londonparkour.com
 
 stage.sh dev.londonparkour.com
 

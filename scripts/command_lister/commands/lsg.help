@@ -1,4 +1,4 @@
-GIT
+git
 lsg
 
 Shows an ls -la with git info too. 
