@@ -87,3 +87,5 @@ if [[ -f "$CUSTOM" ]]
 then
     source ~/.zshrc.custom
 fi
+
+~/scripts__tools/scripts/zsh/motd.sh
