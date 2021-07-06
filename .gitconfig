@@ -1,0 +1,17 @@
+# This is Git's per-user configuration file.
+[user]
+	name = Andy Pearson
+	email = andy@londonparkour.com
+# Please adapt and uncomment the following lines:
+#	name = Andrew Pearson
+#	email = andrewpearson@Wintermute.local
+[credential]
+	helper = store
+[core]
+	excludesfile = /Users/andrewpearson/.gitignore_global
+	pager = less -r
+	editor = code
+[init]
+	defaultBranch = master
+[color]
+	ui = true
