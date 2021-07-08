@@ -1,0 +1,16 @@
+#!/bin/bash
+
+
+# lightline
+if [ ! -d "$HOME/.vim/pack/plugins/start/lightline" ] 
+then
+    echo "Installing VIM Lightline"
+    git clone https://github.com/itchyny/lightline.vim ~/.vim/pack/plugins/start/lightline
+fi
+
+# airline
+if [ ! -d "$HOME/.vim/pack/dist/start/vim-airline" ] 
+then
+    echo "Installing VIM AirLine"
+    git clone https://github.com/vim-airline/vim-airline ~/.vim/pack/dist/start/vim-airline
+fi

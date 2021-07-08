@@ -1,0 +1,11 @@
+#!/bin/bash
+
+
+brew list zsh 1>/dev/null                       || brew install zsh                                         # Dependencies: ncurses ✔, pcre ✔
+brew list zsh-syntax-highlighting 1>/dev/null   || brew install zsh-syntax-highlighting                     #
+brew list exa 1>/dev/null                       || brew install exa                                         # pandoc ✘, rust ✘
+brew list git-crypt 1>/dev/null                 || brew install git-crypt                                   # openssl@1.1 ✘
+brew list gnupg@1.4 1>/dev/null                 || brew install gnupg@1.4                                   # 
+brew list jq 1>/dev/null                        || brew install jq                                          # oniguruma ✘
+brew list terraform 1>/dev/null                 || brew install terraform                                   # go ✘
+brew list wget 1>/dev/null                      || brew install wget                                        # gettext, libunistring, libidn2 ✘, openssl@1.1 ✔

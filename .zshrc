@@ -23,7 +23,6 @@ function prompt_machine() {
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 plugins=(
-    z
     git
     zsh-autosuggestions
     zsh-syntax-highlighting
@@ -79,6 +78,9 @@ source ~/scripts__tools/scripts/zsh/path
 
 # SYMLINKS
 source ~/scripts__tools/scripts/zsh/symlinks
+
+# SYMLINKS for DOTFILES
+source ~/scripts__tools/scripts/zsh/dotfiles
 
 # KEEP AT BOTTOM
 # System-specified script for overrides

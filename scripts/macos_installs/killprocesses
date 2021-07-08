@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# KILL all processes
+
+## declare processes to kill
+declare -a processes=(
+    "NewsToday2" 
+    "NewsTag"
+    "StocksWidget"
+)
+
+## now loop through the above array
+for process in "${processes[@]}"
+do
+    
+    PID=$(ps -ef | grep -v "grep" | grep "${process}" | awk '{print $2}');  
+    if [ ! -z "$PID" ]
+    then
+        echo "Killing: $process"
+        kill -9 ${PID};
+    fi
+done

@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# git
+if [ ! -L $HOME/.gitconfig ]; then
+    echo "=> Symlinking .gitconfig"
+    ln -s $HOME/scripts__tools/.gitconfig        $HOME/.gitconfig
+fi
+
+if [ ! -L $HOME/.gitignore_global ]; then
+    echo "=> Symlinking .gitignore_global"
+    ln -s $HOME/scripts__tools/.gitignore_global        $HOME/.gitignore_global
+fi
+
+
+# vim
+if [ ! -L $HOME/.vimrc ]; then
+    echo "=> Symlinking .vimrc"
+    ln -s $HOME/scripts__tools/.vimrc        $HOME/.vimrc
+fi
+
+if [ ! -L $HOME/.vim ]; then
+    echo "=> Symlinking .vim"
+    ln -s $HOME/scripts__tools/.vim        $HOME/.vim
+fi
