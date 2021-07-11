@@ -74,8 +74,8 @@ question_to_create() {
     if [ "$answer_create_db" != "Y" ]; then
         echo "Skipping."
     else
-        CMD='mysql --version'
-        echo $CMD
+        CMD="mysql -e 'CREATE DATABASE dev_londonparkour_com'"
+        echo "DEBUG: " $CMD
         $($CMD)
     fi
 }
