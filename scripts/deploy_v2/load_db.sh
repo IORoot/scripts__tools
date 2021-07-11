@@ -66,6 +66,7 @@ check_db() {
     fi
 }
 
+
 question_to_create() {
     printf "${Cyan}Do you want to create the DB. Y/n?"
 
@@ -74,9 +75,10 @@ question_to_create() {
     if [ "$answer_create_db" != "Y" ]; then
         echo "Skipping."
     else
-        CMD="mysql --execute='CREATE DATABASE dev_londonparkour_com'"
-        echo "DEBUG: " $CMD
-        $($CMD)
+        mysql --execute='CREATE DATABASE ${DB_NAME}'
+        
+        # echo "DEBUG: " $CMD
+        # $($CMD)
     fi
 }
 
