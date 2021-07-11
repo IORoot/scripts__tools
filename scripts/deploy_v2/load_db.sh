@@ -69,6 +69,14 @@ check_db() {
     fi
 }
 
+question_to_create() {
+    printf "${Cyan}Do you want to create the DB. Y/n \n"
+    read answer_create_db
+
+    if [ "$answer_create_db" != "Y" ]; then
+        exit 1
+    fi
+}
 
 # List of commands to run
 set_variables $PIPE $ARGS
@@ -76,3 +84,4 @@ check_variables
 check_user
 check_for_sql_file
 check_db
+question_to_create
