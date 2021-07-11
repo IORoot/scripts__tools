@@ -71,7 +71,7 @@ check_db() {
 
 
 load_db() {
-    echo "mysql -h localhost ${DB_NAME} < $PWD/wp-content/database/$DB_NAME.sql"
+    mysql -h localhost ${DB_NAME} < $PWD/wp-content/database/$DB_NAME.sql
 }
 
 
