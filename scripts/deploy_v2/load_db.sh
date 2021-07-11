@@ -15,17 +15,18 @@ PWD=$(/bin/pwd)
 
 
 set_variables(){
+
     if [[ -n "$1" ]];then
-        DB_NAME=$1
+        DB_USER=$1
     fi
 
     if [[ -n "$2" ]];then
-        DB_USER=$2
-    fi
+        DB_PASS=$2
+    fi 
 
     if [[ -n "$3" ]];then
-        DB_PASS=$3
-    fi 
+        DB_NAME=$3
+    fi
 }
 
 
