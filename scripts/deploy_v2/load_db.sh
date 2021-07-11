@@ -74,7 +74,12 @@ question_to_create() {
     read answer_create_db
 
     if [ "$answer_create_db" != "Y" ]; then
-        exit 1
+        echo "Skipping."
+    else
+        CMD='mysql --version'
+
+        echo $CMD
+        $($CMD)
     fi
 }
 
