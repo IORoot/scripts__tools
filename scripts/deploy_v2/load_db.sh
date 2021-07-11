@@ -2,6 +2,8 @@
 
 source cli_colours
 
+# Run command:
+# load_db $(read_wp_config .)
 
 # All Arguments
 ARGS=$@
@@ -74,7 +76,7 @@ question_to_create() {
     else
         CMD='mysql --version'
         echo $CMD
-        $(CMD)
+        $($CMD)
     fi
 }
 
