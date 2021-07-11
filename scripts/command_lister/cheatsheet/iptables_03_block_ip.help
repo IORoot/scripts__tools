@@ -1,0 +1,4 @@
+IPTABLES
+iptables -A INPUT -s 203.0.113.51 -j DROP
+
+Block and IP Address
