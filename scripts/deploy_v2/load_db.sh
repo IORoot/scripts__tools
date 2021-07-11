@@ -59,6 +59,15 @@ check_for_sql_file() {
 }
 
 
+create_db() {
+    RESULT=`mysqlshow $DB_NAME| grep -v Wildcard | grep -o $DB_NAME`
+    if [ "$RESULT" == $DB_NAME ]; then
+        echo "Database Exists"
+    else
+        echo "Database does not exist. Creating"
+    fi
+}
+
 
 # List of commands to run
 set_variables $PIPE $ARGS
