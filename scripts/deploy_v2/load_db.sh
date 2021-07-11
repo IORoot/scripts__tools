@@ -10,7 +10,9 @@ fi
 
 # All Arguments
 ARGS=$@
-PWD=`/bin/pwd`
+PWD=$(/bin/pwd)
+
+
 
 set_variables(){
     if [[ -n "$1" ]];then
@@ -48,6 +50,11 @@ check_user() {
 check_for_sql_file() {
     if [[ ! -d "$PWD/wp-config/database" ]];then
         echo "no /wp-config/database directory found."
+        exit 1
+    fi
+
+    if ! ls $PWD/wp-content/database/*.sql 1> /dev/null 2>&1; then
+        echo "SQL File not found"
         exit 1
     fi
 }
