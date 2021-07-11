@@ -52,8 +52,8 @@ check_for_sql_file() {
         exit 1
     fi
 
-    if ! ls $PWD/wp-content/database/*.sql 1> /dev/null 2>&1; then
-        echo "SQL File not found"
+    if ! ls $PWD/wp-content/database/$DB_NAME.sql 1> /dev/null 2>&1; then
+        echo "SQL File ${DB_NAME}.sql not found"
         exit 1
     fi
 }
@@ -71,8 +71,9 @@ check_db() {
 
 
 load_db() {
-    mysql --execute="CREATE DATABASE ${DB_NAME}"
+    echo "mysql -h localhost ${DB_NAME} < $PWD/wp-content/database/$DB_NAME.sql"
 }
+
 
 # List of commands to run
 set_variables $ARGS
