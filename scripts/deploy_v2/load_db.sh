@@ -75,6 +75,11 @@ load_db() {
 }
 
 
+give_perms() {
+    mysql --execute="GRANT ALL on ${DB_NAME}.* to '${DB_USER}'@'localhost';"
+}
+
+
 # List of commands to run
 set_variables $ARGS
 check_variables
@@ -82,3 +87,4 @@ check_user
 check_for_sql_file
 check_db
 load_db
+give_perms
