@@ -59,7 +59,7 @@ check_for_sql_file() {
 }
 
 
-create_db() {
+check_db() {
     RESULT=`mysqlshow $DB_NAME| grep -v Wildcard | grep -o $DB_NAME`
     if [ "$RESULT" == $DB_NAME ]; then
         echo "Database Exists"
@@ -74,3 +74,4 @@ set_variables $PIPE $ARGS
 check_variables
 check_user
 check_for_sql_file
+check_db
