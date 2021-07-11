@@ -64,7 +64,7 @@ check_db() {
     if [ "$RESULT" == $DB_NAME ]; then
         echo "Database Exists"
     else
-        echo "Database does not exist. Creating"
+        echo "Database does not exist."
     fi
 }
 
