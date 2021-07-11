@@ -3,11 +3,6 @@
 source cli_colours
 
 
-# Accept a piped input.
-if [[ -p /dev/stdin ]]; then
-    PIPE=$(cat -)
-fi
-
 # All Arguments
 ARGS=$@
 PWD=$(/bin/pwd)
@@ -70,21 +65,21 @@ check_db() {
 }
 
 question_to_create() {
-    printf "${Cyan}Do you want to create the DB. Y/n \n"
+    printf "${Cyan}Do you want to create the DB. Y/n?"
+
     read answer_create_db
 
     if [ "$answer_create_db" != "Y" ]; then
         echo "Skipping."
     else
         CMD='mysql --version'
-
         echo $CMD
-        $($CMD)
+        $(CMD)
     fi
 }
 
 # List of commands to run
-set_variables $PIPE $ARGS
+set_variables $ARGS
 check_variables
 check_user
 check_for_sql_file
