@@ -63,9 +63,9 @@ check_for_sql_file() {
 check_db() {
     RESULT=`mysqlshow $DB_NAME| grep -v Wildcard | grep -o $DB_NAME`
     if [ "$RESULT" == $DB_NAME ]; then
-        echo "Database Exists"
+        echo "Database '$DB_NAME' Exists"
     else
-        echo "Database does not exist."
+        echo "Database '$DB_NAME' does not exist."
     fi
 }
 
