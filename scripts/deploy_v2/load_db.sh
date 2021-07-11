@@ -78,7 +78,7 @@ question_to_create() {
         CMD="mysql --execute=\"CREATE DATABASE ${DB_NAME}\""
         
         echo "DEBUG: " $CMD
-        $($CMD)
+        $CMD
     fi
 }
 
