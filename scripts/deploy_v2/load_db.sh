@@ -75,7 +75,7 @@ question_to_create() {
     if [ "$answer_create_db" != "Y" ]; then
         echo "Skipping."
     else
-        mysql --execute='CREATE DATABASE ${DB_NAME}'
+        mysql --execute="CREATE DATABASE ${DB_NAME}"
         
         # echo "DEBUG: " $CMD
         # $($CMD)
