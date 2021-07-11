@@ -1,0 +1,4 @@
+FIND
+find . -name "foo*"
+
+Recursively search for a file

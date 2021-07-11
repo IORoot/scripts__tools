@@ -1,0 +1,4 @@
+GREP
+grep -rnli '/path/to/somewhere/' -e 'pattern'
+
+Regex search (recursive)

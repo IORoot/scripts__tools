@@ -1,0 +1,4 @@
+SED
+cat .bashrc | sed 's#one#two#g'
+
+Different regex separator

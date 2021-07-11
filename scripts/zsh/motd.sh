@@ -114,7 +114,7 @@ output_services()
 
 helpme(){
     title "Help"
-    printf "${I_Black}HELP: ${Orange}Run 'help' for list of scripts & commands.\n"
+    printf "${I_Black}HELP: ${Orange}'help' will list custom scripts. 'cheat' for command cheatsheet.\n"
 }
 
 if [[ $NODE_DISTRO == *"Darwin"* ]]; then

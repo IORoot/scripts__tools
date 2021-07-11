@@ -1,0 +1,4 @@
+GREP
+grep -rnli "text-to-find-here" ./
+
+Word search (recursive)

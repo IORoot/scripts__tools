@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Grab the symlinks REAL location, grab the folder too.
-SCRIPT_DIR=`readlink \`which help\``
+SCRIPT_DIR=`readlink \`which cheat\``
 DIRNAME=`dirname $SCRIPT_DIR`
-COMMANDFOLDER="${DIRNAME}/commands"
+COMMANDFOLDER="${DIRNAME}/cheatsheet"
 
 VIEW='list'
 
@@ -12,9 +12,9 @@ source cli_colours
 
 header()
 {
-    printf "${Red}Andy P's Command List${NC}\n"
+    printf "${Red}Andy P's Command Cheatsheet${NC}\n"
     printf "${Red}------------------------------------------------------------------------------------------------------------------------${NC}\n"
-    printf "${Cyan}%-10s ${Cyan}%-20s ${Cyan}%-30s ${Cyan}%s\n" "Category" "Command" "Parameters" "Description"
+    printf "${Cyan}%-10s ${Cyan}%-60s ${Cyan}%s\n" "Category" "Command" "Description"
     printf "${Red}------------------------------------------------------------------------------------------------------------------------${NC}\n"
 }
 
@@ -71,7 +71,7 @@ set_category_header()
 print_command()
 {
     spacer_line
-    printf "${NC}%-10s ${Orange}%-20s ${Green}%-30s ${Purple}%s\n" "${CATEGORY}" "${COMMAND}" "${PARAMS}" "${DESC}"
+    printf "${NC}%-10s ${Green}%-60s ${Purple}%s\n" "${CATEGORY}" "${COMMAND} ${PARAMS}" "${DESC}"
     
 }
 

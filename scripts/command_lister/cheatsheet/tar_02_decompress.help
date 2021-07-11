@@ -1,0 +1,4 @@
+TAR
+tar -xvzf archive.tar.gz
+
+uncompress file to current directory

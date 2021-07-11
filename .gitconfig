@@ -8,7 +8,7 @@
 [credential]
 	helper = store
 [core]
-	excludesfile = /Users/andrewpearson/.gitignore_global
+	excludesFile = ~/.gitignore_global
 	pager = less -r
 	editor = code
 [init]

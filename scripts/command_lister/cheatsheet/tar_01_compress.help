@@ -1,0 +1,4 @@
+TAR
+tar -zcvf archive.tar.gz /path/
+
+Tar-GZip compress directory
