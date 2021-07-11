@@ -1,4 +1,5 @@
 #!/bin/bash
+
 source cli_colours
 
 # Accept a piped input.
@@ -7,8 +8,6 @@ if [[ -p /dev/stdin ]]; then
 fi
 # All Arguments
 ARGS=$@
-
-
 
 
 set_variables(){
@@ -44,13 +43,11 @@ check_user() {
 }
 
 
-set_output_filename() {
-    OUTFILE=./${DB_NAME}-`date '+%y%m%d'`.sql
-}
-
-
-dump_database(){
-    MYSQL_PWD=${DB_PASS} mysqldump --no-tablespaces -u${DB_USER} ${DB_NAME}  > ${OUTFILE}
+check_for_sql_file() {
+    if [[ ! -d "./wp-config/database" ]];then
+        echo "no /wp-config/database directory found."
+        exit 1
+    fi
 }
 
 
@@ -59,5 +56,4 @@ dump_database(){
 set_variables $PIPE $ARGS
 check_variables
 check_user
-set_output_filename
-dump_database
+check_for_sql_file

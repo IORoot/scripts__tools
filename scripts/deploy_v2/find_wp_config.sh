@@ -1,6 +1,14 @@
 #!/bin/bash
 source cli_colours
 
+# Usage
+# This will find the first wp-config.php match against a search term.
+# Use to find your wordpress config you need.
+# e.g.
+# ./find_wp_config dev.lon
+
+
+
 # Returns the first match path
 if [ "$#" -ne 1 ]; then
     echo -e "$0 [SEARCH] - ${Orange} Search the /var/www tree to return the first WP folder that matches the parameter."
