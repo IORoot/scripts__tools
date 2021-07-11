@@ -2,7 +2,8 @@
 
 source cli_colours
 
-# Run command:
+# Usage:
+# load_db [user] [password] [database]
 # load_db $(read_wp_config .)
 
 # All Arguments
@@ -29,7 +30,8 @@ set_variables(){
 
 check_variables(){
     if [[ -z "$DB_NAME" ]] || [[ -z "$DB_USER" ]] || [[ -z "$DB_PASS" ]];then
-        echo "$0 [DB_NAME] [DB_USER] [DB_PASS]"
+        echo "$0 [user] [password] [database]"
+        echo "or $0 \$(read_wp_config .)"
         exit 1
     fi
 }
@@ -67,31 +69,9 @@ check_db() {
 }
 
 
-question_to_create_db() {
-    printf "${Cyan}Do you want to create the DB. Y/n?"
 
-    read answer_create_db
-
-    if [ "$answer_create_db" != "Y" ]; then
-        echo "Skipping."
-    else
-        mysql --execute="CREATE DATABASE ${DB_NAME}"
-        echo "Created."
-    fi
-}
-
-
-question_to_create_user() {
-    printf "${Cyan}Do you want to create the User. Y/n?"
-
-    read answer_create_user
-
-    if [ "$answer_create_user" != "Y" ]; then
-        echo "Skipping."
-    else
-        mysql --execute="CREATE DATABASE ${DB_NAME}"
-        echo "Created."
-    fi
+load_db() {
+    mysql --execute="CREATE DATABASE ${DB_NAME}"
 }
 
 # List of commands to run
@@ -100,5 +80,4 @@ check_variables
 check_user
 check_for_sql_file
 check_db
-question_to_create_db
-question_to_create_user
+load_db
