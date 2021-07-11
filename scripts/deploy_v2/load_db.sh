@@ -30,8 +30,8 @@ set_variables(){
 
 check_variables(){
     if [[ -z "$DB_NAME" ]] || [[ -z "$DB_USER" ]] || [[ -z "$DB_PASS" ]];then
-        echo "$0 [user] [password] [database]"
-        echo "or $0 \$(read_wp_config .)"
+        echo "load_db [user] [password] [database]"
+        echo "or while in WP root directory, use: load_db \$(read_wp_config .)"
         exit 1
     fi
 }
