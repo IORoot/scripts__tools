@@ -39,17 +39,16 @@ check_variables(){
 
 check_user() {
     USER=`whoami`
-    printf "${Cyan}You need root access for this. You are: ${USER} \n"
     if [ "$USER" != "root" ]; then
-        echo "Not root user. Exit."
+        printf "${Cyan}You need root access for this. You are: ${USER} \n"
         exit 1
     fi
 }
 
 
 check_for_sql_file() {
-    if [[ ! -d "$PWD/wp-config/database" ]];then
-        echo "no /wp-config/database directory found."
+    if [[ ! -d "$PWD/wp-content/database" ]];then
+        echo "no /wp-content/database directory found."
         exit 1
     fi
 
