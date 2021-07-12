@@ -12,3 +12,5 @@ brew list terraform 1>/dev/null                 || brew install terraform       
 brew list wget 1>/dev/null                      || brew install wget                                        # gettext, libunistring, libidn2 ✘, openssl@1.1 ✔
 brew list vagrant 1>/dev/null                   || brew install vagrant                                     # 
 brew list nmap 1>/dev/null                      || brew install nmap                                        # openssl@1.1 ✘ 
+brew list nmap 1>/dev/null                      || brew install nmap                                        # openssl@1.1 ✘ 
+brew list node 1>/dev/null                      || brew install node                                         # pkg-config ✘, python@3.9 ✘, brotli ✘, c-ares ✘, icu4c ✘, libuv ✘, nghttp2 ✘, openssl@1.1 ✔
