@@ -1,0 +1,4 @@
+NETWORK
+ip r 
+
+List IP Route. [not macos]
