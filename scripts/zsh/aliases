@@ -41,6 +41,9 @@ alias igs="ssh root@157.245.42.123"
 alias papply="/opt/puppetlabs/bin/puppet apply --disable_warnings deprecations /etc/puppetlabs/code/environments/production/manifests/";
 alias cdpuppet="cd /etc/puppetlabs/code/environments/production";
 
+# TERRAFORM
+alias tf="terraform"
+
 # PHPUNIT
 alias pu="phpunit --testdox"
 alias purun="phpunit --testdox --coverage-html tests/report"

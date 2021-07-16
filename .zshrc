@@ -83,8 +83,8 @@ source ~/scripts__tools/scripts/zsh/symlinks
 source ~/scripts__tools/scripts/zsh/dotfiles
 
 # System-specified script for overrides
-SECREETS=~/.secrets
-if [[ -f "$CUSTOM" ]]
+SECRETS=~/.secrets
+if [[ -f "$SECRETS" ]]
 then
     source ~/.secrets
 fi
