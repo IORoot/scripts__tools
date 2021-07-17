@@ -62,8 +62,8 @@ ubuntu(){
     APACHE_STATE=$(systemctl status apache2.service | grep "Active" | awk '{print $2}')
     APACHE_VER=$(apache2 -v | head -1 | awk '{print $3}' )
 
-    # Puppets
-    PUPPET_STATE=$(systemctl status puppet.service | grep "Active" | awk '{print $2}')
+    # PUPPET
+    PUPPET_VER=$(puppet --version)
     PUPPET_RAN=$(head -n3 /opt/puppetlabs/puppet/cache/state/last_run_report.yaml 2> /dev/null | grep "time" | awk -F "'" '{print $2}' | cut -c 1-16)
 }
 
@@ -109,7 +109,7 @@ output_services()
     printf "${I_Black}PHP : ${Cyan}%-40s ${I_Black} STATE :${Green} %-40s\n" "${PHP_VER}" "${PHP_STATE}"
     printf "${I_Black}MSQL: ${Cyan}%-40s ${I_Black} STATE :${Green} %-40s\n" "${MYSQL_VER}" "${MYSQL_STATE}" 
     printf "${I_Black}WEB : ${Cyan}%-40s ${I_Black} STATE :${Green} %-40s\n" "${APACHE_VER}" "${APACHE_STATE}"
-    printf "${I_Black}PUPP: ${Cyan}%-40s ${I_Black} STATE :${Green} %-40s\n" "${PUPPET_RAN}" "${PUPPET_STATE}"
+    printf "${I_Black}PUPP: ${Cyan}%-40s ${I_Black} RAN   :${Green} %-40s\n" "${PUPPET_VER}" "${PUPPET_RAN}"
 }
 
 helpme(){
