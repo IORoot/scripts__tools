@@ -41,7 +41,7 @@ macos(){
 
 
 ubuntu(){
-    LOCAL_IP=$(ifconfig | grep "inet " | grep -v "127.0.0.1" | head -1 | awk '{print $2}')
+    LOCAL_IP=$(hostname -I | awk '{print $2}')
     PUBLIC_IP=$(curl -sS ifconfig.me)
 
     # Node Metrics
