@@ -2,19 +2,19 @@
 
 # `brew info vagrant` for dependencies
 
-brew list zsh 1>/dev/null                       || brew install zsh                                         # Dependencies: ncurses ✔, pcre ✔
-brew list zsh-syntax-highlighting 1>/dev/null   || brew install zsh-syntax-highlighting                     #
-brew list exa 1>/dev/null                       || brew install exa                                         # pandoc ✘, rust ✘
-brew list git-crypt 1>/dev/null                 || brew install git-crypt                                   # openssl@1.1 ✘
-brew list gnupg@1.4 1>/dev/null                 || brew install gnupg@1.4                                   # 
-brew list jq 1>/dev/null                        || brew install jq                                          # oniguruma ✘
-brew list terraform 1>/dev/null                 || brew install terraform                                   # go ✘
-brew list wget 1>/dev/null                      || brew install wget                                        # gettext, libunistring, libidn2 ✘, openssl@1.1 ✔
-brew list nmap 1>/dev/null                      || brew install nmap                                        # openssl@1.1 ✘ 
-brew list nmap 1>/dev/null                      || brew install nmap                                        # openssl@1.1 ✘ 
-brew list node 1>/dev/null                      || brew install node                                         # pkg-config ✘, python@3.9 ✘, brotli ✘, c-ares ✘, icu4c ✘, libuv ✘, nghttp2 ✘, openssl@1.1 ✔
+echo "zsh"; brew list zsh 1>/dev/null                                           || brew install zsh                                         # Dependencies: ncurses ✔, pcre ✔
+echo "zsh-syntax-highlighting"; brew list zsh-syntax-highlighting 1>/dev/null   || brew install zsh-syntax-highlighting                     #
+echo "exa"; brew list exa 1>/dev/null                                           || brew install exa                                         # pandoc ✘, rust ✘
+echo "git-crypt"; brew list git-crypt 1>/dev/null                               || brew install git-crypt                                   # openssl@1.1 ✘
+echo "gnupg"; brew list gnupg@1.4 1>/dev/null                                   || brew install gnupg@1.4                                   # 
+echo "jq"; brew list jq 1>/dev/null                                             || brew install jq                                          # oniguruma ✘
+echo "terraform"; brew list terraform 1>/dev/null                               || brew install terraform                                   # go ✘
+echo "wget"; brew list wget 1>/dev/null                                         || brew install wget                                        # gettext, libunistring, libidn2 ✘, openssl@1.1 ✔
+echo "nmap"; brew list nmap 1>/dev/null                                         || brew install nmap                                        # openssl@1.1 ✘ 
+echo "node"; brew list node 1>/dev/null                                         || brew install node                                        # pkg-config ✘, python@3.9 ✘, brotli ✘, c-ares ✘, icu4c ✘, libuv ✘, nghttp2 ✘, openssl@1.1 ✔
+echo "neofetch"; brew list neofetch 1>/dev/null                                 || brew install neofetch                                    # screenresolution ✘,
 
 # Casks
-brew list --cask pe-client-tools  1>/dev/null   || brew install puppetlabs/puppet/pe-client-tools           # 
-brew list --cask puppet-agent  1>/dev/null      || brew install puppetlabs/puppet/puppet-agent           # 
-brew list --cask vagrant 1>/dev/null            || brew install vagrant                                     # 
+echo "pe-client-tools"; brew list --cask pe-client-tools  1>/dev/null           || brew install puppetlabs/puppet/pe-client-tools           # 
+echo "puppet-agent"; brew list --cask puppet-agent  1>/dev/null                 || brew install puppetlabs/puppet/puppet-agent              # 
+echo "vagrant"; brew list --cask vagrant 1>/dev/null                            || brew install vagrant                                     # 
