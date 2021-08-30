@@ -6,6 +6,7 @@ echo "zsh"; brew list zsh 1>/dev/null                                           
 echo "zsh-syntax-highlighting"; brew list zsh-syntax-highlighting 1>/dev/null   || brew install zsh-syntax-highlighting                     #
 echo "exa"; brew list exa 1>/dev/null                                           || brew install exa                                         # pandoc ✘, rust ✘
 echo "git-crypt"; brew list git-crypt 1>/dev/null                               || brew install git-crypt                                   # openssl@1.1 ✘
+echo "gnupg"; brew list gnupg 1>/dev/null                                       || brew install gnupg                                       # Required: gettext ✔, gnutls ✘, libassuan ✘, libgcrypt ✘, libgpg-error ✘, libksba ✘, libusb ✘, npth ✘, pinentry ✘
 echo "gnupg"; brew list gnupg@1.4 1>/dev/null                                   || brew install gnupg@1.4                                   # 
 echo "jq"; brew list jq 1>/dev/null                                             || brew install jq                                          # oniguruma ✘
 echo "terraform"; brew list terraform 1>/dev/null                               || brew install terraform                                   # go ✘
