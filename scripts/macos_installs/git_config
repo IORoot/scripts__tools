@@ -1,4 +1,0 @@
-#!/bin/bash
-
-git config --global core.excludesFile '~/.gitignore_global'
-git config pull.rebase false

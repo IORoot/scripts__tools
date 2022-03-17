@@ -1,4 +1,0 @@
-#!/bin/bash
-
-# Force light-mode
-defaults write com.google.Chrome NSRequiresAquaSystemAppearance -bool YES
