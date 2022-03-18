@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# LIVE
+alias wp11="ssh -A andy@webproduction11.thirtythreelive.co.uk"
+alias wp12="ssh -A andy@webproduction12.thirtythreelive.co.uk"
+alias wp13="ssh -A andy@webproduction13.thirtythreelive.co.uk"
+alias wp14="ssh -A andy@webproduction14.thirtythreelive.co.uk"
+alias wpao="ssh -A andy@webproduction-allenovery03.thirtythreelive.co.uk"
+alias wpbnp="ssh -A andy@webproduction-bnp02.thirtythreelive.co.uk"
+alias wpbupa="ssh -A andy@webproduction-bupa01.thirtythreelive.co.uk"
+alias wpsss01="ssh -A andy@webproduction-socialsecurityscotland01.thirtythreelive.co.uk"
+alias wpsss02="ssh -A andy@webproduction-socialsecurityscotland02.thirtythreelive.co.uk"
+
+alias jims02="ssh -A andy@jims02.thirtythreelive.co.uk"
+alias redirector="ssh -A andy@redirector.thirtythreelive.co.uk"
+alias ftp="ssh -A andy@ththsftp.thirtythreelive.co.uk"
+
+# STAGING
+alias staging="ssh -A andy@webstaging.thirtythreestaging.co.uk"
+alias stao="ssh -A andy@webstaging-allenovery02.thirtythreestaging.co.uk"
+alias stbnp="ssh -A andy@webstaging-bnp02.thirtythreestaging.co.uk"
+alias stbupa="ssh -A andy@webstaging-bupa01.thirtythreestaging.co.uk"
+alias jimsstaging="ssh -A andy@jimsstaging.thirtythreestaging.co.uk"
+
+# BUILD
+alias build="ssh -A andy@webbuild.thirtythreebuild.co.uk"
+alias bdbnp="ssh -A andy@webbuild-bnp02.thirtythreebuild.co.uk"
+alias gitlab="ssh -A andy@gitlab.thirtythreebuild.co.uk"
+alias gov="ssh -A andy@governator.thirtythreebuild.co.uk"
+alias metrics="ssh -A andy@metrics.thirtythreebuild.co.uk"
+alias qa01="ssh -A andy@qa01.thirtythreebuild.co.uk"

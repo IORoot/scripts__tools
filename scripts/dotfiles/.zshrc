@@ -61,6 +61,10 @@ if [ -f ~/.aliases ]; then
     source ~/.aliases
 fi
 
+if [ -f ~/.aliases_33 ]; then
+    source ~/.aliases_33
+fi
+
 if [ -f ~/.env_vars ]; then
     source ~/.env_vars
 fi
