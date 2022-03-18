@@ -1,6 +1,6 @@
 # Scripts and Tools
 
-This is a very simple puppet-esque installer for your personal programs, environments, scripts, etc...
+This is a very simple BASH based puppet-esque installer for your personal programs, environments, scripts, etc...
 
 ## How to run
 
