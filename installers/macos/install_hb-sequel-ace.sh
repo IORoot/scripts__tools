@@ -5,10 +5,10 @@
 
 if [ -f "/usr/local/bin/brew" ]; then
 
-    if [ -d /usr/local/Cellar/jq ]; then
+    if [ -d /usr/local/Caskroom/sequel-ace ]; then
         printf "Already Installed\n"
     else
-        brew list jq 1>/dev/null || brew install jq                  #
+        brew list --cask sequel-ace 1>/dev/null || brew install --cask sequel-ace                  #
         printf "DONE\n"
     fi
 

@@ -5,7 +5,7 @@
 
 if [ -f "/usr/local/bin/brew" ]; then
 
-    if [ -L /usr/local/bin/wget ]; then
+    if [ -d /usr/local/Cellar/wget ]; then
         printf "Already Installed\n"
     else
         brew list wget 1>/dev/null || brew install wget                  #

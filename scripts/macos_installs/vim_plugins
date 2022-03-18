@@ -1,9 +1,0 @@
-#!/bin/bash
-
-
-# lightline
-if [ ! -d "$HOME/.vim/pack/plugins/start/lightline" ] 
-then
-    echo "Installing VIM Lightline"
-    git clone https://github.com/itchyny/lightline.vim ~/.vim/pack/plugins/start/lightline
-fi

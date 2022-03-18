@@ -13,7 +13,7 @@ White='\033[0;37m'         # White
 
 BINPATH="/usr/local/bin"
 
-echo "Already Installed"
+echo 'Listing' # downarrow
 /usr/bin/find $INSTALL_DIR/scripts/bin -name \*.sh -print0 | while read -d $'\0' ABSOLUTEPATH
 do
 
@@ -25,7 +25,7 @@ do
         ln -s ${ABSOLUTEPATH} ${SCRIPT};
         printf "${CYAN}Linked %-50s ${ORANGE} --> ${GREEN} %-6s ${NC}\n" "${SCRIPT}" "${ABSOLUTEPATH}";
     else 
-        printf "${Green}%-10s   ${Cyan}%-20s ${Purple}%-60s ${NC}%s\n" "" "" "-- ${SCRIPT}" "Already Installed"
+        printf "${Green}%-10s ${Purple}%-83s ${NC}%s\n" "" "- ${SCRIPT}" "Already Installed"
     fi
     
 done

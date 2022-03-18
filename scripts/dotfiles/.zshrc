@@ -64,3 +64,7 @@ fi
 if [ -f ~/.env_vars ]; then
     source ~/.env_vars
 fi
+
+# Run MOTD
+/usr/local/bin/neofetch
+/usr/local/bin/motd

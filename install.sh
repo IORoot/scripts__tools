@@ -92,30 +92,12 @@ variable_replace()
 }
 
 
+load_profile()
+{
+    HOSTNAME=$(hostname)
+    source $INSTALL_DIR/profiles/$HOSTNAME
+}
+
 cli_colours
 detect_os
-install "homebrew"
-install "ohmyzsh"
-install "powerlevel10k"
-install "zshrc"
-install "aliases"
-install "env_vars"
-install "paths"
-install "vimrc"
-install "z-syntax-highlight"
-install "z-autosuggestions"
-install "hb-exa"
-install "hb-git-crypt"
-install "hb-gnupg"
-install "hb-gnupg1.4"
-install "hb-jq"
-install "hb-terraform"
-install "hb-wget"
-install "hb-nmap"
-install "hb-node"
-install "hb-neofetch"
-install "hb-pe-client"
-install "hb-puppet"
-install "npm-postcss"
-install "npm-nodemon"
-install "scripts"
+load_profile

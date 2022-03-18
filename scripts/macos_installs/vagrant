@@ -1,9 +1,0 @@
-#!/bin/bash
-
-# VAGRANT MACHINES LOCATION
-export VAGRANTPATH=/Users/andypearson/Repository/Code/Vagrant Boxes
-
-# Add host entries for Vagrant boxes!
-sudo echo "10.11.12.13 dev.labs.londonparkour.com" >> /etc/hosts
-sudo echo "10.11.12.14 dev.pulse.londonparkour.com" >> /etc/hosts
-sudo echo "10.11.12.15 dev.londonparkour.com" >> /etc/hosts

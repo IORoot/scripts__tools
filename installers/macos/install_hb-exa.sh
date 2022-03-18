@@ -5,7 +5,7 @@
 
 if [ -f "/usr/local/bin/brew" ]; then
 
-    if [ -L /usr/local/bin/exa ]; then
+    if [ -d /usr/local/Cellar/exa ]; then
         printf "Already Installed\n"
     else
         brew list exa 1>/dev/null || brew install exa                  #
