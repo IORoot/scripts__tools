@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ -L ~/.aliases ]; then
+if [ -L ~/.aliases_33 ]; then
     printf "Already Installed\n"
 else
     ln -s $INSTALL_DIR/scripts/dotfiles/.aliases_33 ~/.aliases_33

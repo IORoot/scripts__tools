@@ -1,0 +1,6 @@
+Host github.com
+    IdentityFile ~/.ssh/id_rsa
+
+Host *
+    ClientAliveInterval 30
+    ClientAliveCountMax 5
