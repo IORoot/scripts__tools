@@ -6,9 +6,9 @@ install "env_vars"
 install "paths"
 install "vimrc"
 install "scripts"
-install "fonts"
 install "gitconfig"
 install "gitignore"
+install "fonts"
 
 # ZSH Plugins
 install "z-syntax-highlight"
