@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ -f "/usr/local/bin/neofetch" ]; then
+if [ -f "/usr/bin/neofetch" ]; then
     printf "Already Installed\n"
 else
     sudo apt update
