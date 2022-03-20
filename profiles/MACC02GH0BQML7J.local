@@ -3,13 +3,19 @@ install "ohmyzsh"
 install "powerlevel10k"
 install "zshrc"
 install "aliases"
-install "aliases_33"
 install "env_vars"
 install "paths"
 install "vimrc"
-install "ssh-config"
+install "scripts"
+install "fonts"
+install "gitconfig"
+install "gitignore"
+
+# ZSH Plugins
 install "z-syntax-highlight"
 install "z-autosuggestions"
+
+# Homebrew
 install "hb-exa"
 install "hb-git-crypt"
 install "hb-gnupg"
@@ -25,7 +31,11 @@ install "hb-node"
 install "hb-neofetch"
 install "hb-pe-client"
 install "hb-puppet"
+
+# NPM 
 install "npm-postcss"
 install "npm-nodemon"
-install "scripts"
-install "fonts"
+
+# 33 Specific
+install "aliases_33"
+install "ssh-config_33"

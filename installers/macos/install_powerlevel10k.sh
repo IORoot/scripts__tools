@@ -2,7 +2,7 @@
 
 source $INSTALL_DIR/installers/helpers.sh
 
-if [ ! -f "~/.p10k.zsh" ]; then
+if [ ! -L ~/.p10k.zsh ]; then
     ln -s $INSTALL_DIR/scripts/dotfiles/.p10k.zsh ~/.p10k.zsh
 fi
 
