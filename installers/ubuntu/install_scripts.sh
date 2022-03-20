@@ -28,7 +28,7 @@ do
    
     # or broken symlink.
     elif [ ! -e $SCRIPT ]; then 
-        mv ${SCRIPT} ${SCRIPT}-`date %y%m%d`
+        mv ${SCRIPT} ${SCRIPT}-`date '+%y%m%d'`
         ln -s ${ABSOLUTEPATH} ${SCRIPT};
         printf "${CYAN}Linked %-50s ${ORANGE} --> ${GREEN} %-6s ${NC}\n" "${SCRIPT}" "${ABSOLUTEPATH}";
         
