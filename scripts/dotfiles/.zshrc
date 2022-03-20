@@ -3,13 +3,6 @@ export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
-# -f : foreground colour
-# -b : background colour
-# -t : text
-function prompt_machine() {
-    p10k segment -f 200 -b 9 -t 'MacOS'
-}
-
 # Plugins to run
 plugins=(
     git
