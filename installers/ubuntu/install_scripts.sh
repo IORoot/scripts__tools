@@ -21,7 +21,7 @@ do
     MINUS_EXT="${BASENAME%.*}"
     SCRIPT="${BINPATH}/${MINUS_EXT}"
 
-    if [ ! -f $SCRIPT ]; then   
+    if [ ! -L $SCRIPT ]; then   
         ln -s ${ABSOLUTEPATH} ${SCRIPT};
         printf "${CYAN}Linked %-50s ${ORANGE} --> ${GREEN} %-6s ${NC}\n" "${SCRIPT}" "${ABSOLUTEPATH}";
     else 
