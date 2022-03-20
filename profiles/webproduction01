@@ -9,6 +9,7 @@ install "scripts"
 install "gitconfig"
 install "gitignore"
 install "fonts"
+install "neofetch"
 
 # ZSH Plugins
 install "z-syntax-highlight"
