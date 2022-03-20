@@ -95,7 +95,13 @@ variable_replace()
 load_profile()
 {
     HOSTNAME=$(hostname)
-    source $INSTALL_DIR/profiles/$HOSTNAME
+
+    if [ ! -f $INSTALL_DIR/profiles/$HOSTNAME ]; then
+        source $INSTALL_DIR/profiles/$HOSTNAME
+    else
+        echo "No profile found for this hostname."
+    fi
+    
 }
 
 cli_colours

@@ -32,7 +32,7 @@ alias wipp='WIP=`pwd`'
 alias wip='cd "$WIP"'
 
 # SITES
-alias lon="ssh root@178.128.166.206"
+alias lon="ssh root@londonparkour.com"
 
 # PUPPET
 alias papply="/opt/puppetlabs/bin/puppet apply --disable_warnings deprecations /etc/puppetlabs/code/environments/production/manifests/";
