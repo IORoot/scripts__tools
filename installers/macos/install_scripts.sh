@@ -21,10 +21,18 @@ do
     MINUS_EXT="${BASENAME%.*}"
     SCRIPT="${BINPATH}/${MINUS_EXT}"
 
-    if [ ! -L $SCRIPT ]; then   
+    # NOT A Link
+    if [ ! -L $SCRIPT ]; then
         ln -s ${ABSOLUTEPATH} ${SCRIPT};
         printf "${CYAN}Linked %-50s ${ORANGE} --> ${GREEN} %-6s ${NC}\n" "${SCRIPT}" "${ABSOLUTEPATH}";
-    else 
+   
+    # or broken symlink.
+    elif [ ! -e $SCRIPT ]; then 
+        mv ${SCRIPT} ${SCRIPT}-`date %y%m%d`
+        ln -s ${ABSOLUTEPATH} ${SCRIPT};
+        printf "${CYAN}Linked %-50s ${ORANGE} --> ${GREEN} %-6s ${NC}\n" "${SCRIPT}" "${ABSOLUTEPATH}";
+        
+    else
         printf "${Green}%-10s ${Purple}%-83s ${NC}%s\n" "" "- ${SCRIPT}" "Already Installed"
     fi
     
