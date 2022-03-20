@@ -96,7 +96,7 @@ load_profile()
 {
     HOSTNAME=$(hostname)
 
-    if [ ! -f $INSTALL_DIR/profiles/$HOSTNAME ]; then
+    if [ -f $INSTALL_DIR/profiles/$HOSTNAME ]; then
         source $INSTALL_DIR/profiles/$HOSTNAME
     else
         echo "No profile found for this hostname."
