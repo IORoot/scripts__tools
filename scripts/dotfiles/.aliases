@@ -34,6 +34,9 @@ alias wip='cd "$WIP"'
 # SITES
 alias lon="ssh root@londonparkour.com"
 
+# SCRIPTS__TOOLS Install
+alias gapply="${INSTALL_DIR}/install.sh"
+
 # PUPPET
 alias papply="/opt/puppetlabs/bin/puppet apply --disable_warnings deprecations /etc/puppetlabs/code/environments/production/manifests/";
 alias cdpuppet="cd /etc/puppetlabs/code/environments/production";
