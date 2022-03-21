@@ -14,7 +14,7 @@ detect_os() {
             echo '-- Detected UBUNTU --'
             FOLDER=ubuntu;
 
-        if [[ "$FLAVOUR" == "pop-os"* ]]; then
+        elif [[ "$FLAVOUR" == "pop-os"* ]]; then
             echo '-- Detected POP-OS --'
             FOLDER=ubuntu;
         
