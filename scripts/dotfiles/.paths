@@ -3,6 +3,9 @@
 # PUPPET
 export PATH=/opt/puppetlabs/puppet/bin:$PATH
 
+# TERRAFORM
+export PATH=/usr/local/opt/terraform@0.13/bin:$PATH
+
 # MYSQL
 export PATH=/usr/local/opt/mysql-client/bin:$PATH
 
