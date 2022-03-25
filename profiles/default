@@ -1,0 +1,24 @@
+install "homebrew"
+install "ohmyzsh"
+install "powerlevel10k"
+install "zshrc"
+install "aliases"
+install "env_vars"
+install "paths"
+install "vimrc"
+install "scripts"
+install "fonts"
+install "gitconfig"
+install "gitignore"
+
+# ZSH Plugins
+install "z-syntax-highlight"
+install "z-autosuggestions"
+
+# Homebrew
+install "hb-exa"
+install "hb-git-crypt"
+install "hb-jq"
+install "hb-wget"
+install "hb-node"
+install "hb-neofetch"

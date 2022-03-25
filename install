@@ -103,7 +103,8 @@ load_profile()
     if [ -f $INSTALL_DIR/profiles/$HOSTNAME ]; then
         source $INSTALL_DIR/profiles/$HOSTNAME
     else
-        echo "No profile found for this hostname."
+        echo "No profile found for this hostname. Running Default."
+        source $INSTALL_DIR/profiles/default
     fi
     
 }

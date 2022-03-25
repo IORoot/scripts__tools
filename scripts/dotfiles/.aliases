@@ -1,12 +1,11 @@
 #!/bin/bash
 
 # General
-alias config="code ~/.zshrc"
-alias aliasls="grep -in --color -e '^alias\s+*' ~/scripts__tools/scripts/dotfiles/.aliases* | sed 's/alias //' | grep --color -e ':[a-z][a-z0-9]*'"
+alias hosts="code /etc/hosts"
+alias aliasls="grep -i --color -e '^alias\s+*' ~/scripts__tools/scripts/dotfiles/.aliases* | sed 's/alias //' | grep --color -e ':[a-z][a-z0-9]*'"
 alias ll="ls -la"
 
 # Software
-#alias php="/usr/local/bin/php"
 alias composer="php /usr/local/bin/composer.phar"
 
 # GIT
@@ -18,9 +17,6 @@ alias gl="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %
 alias gpp="find . -maxdepth 1 -mindepth 1 -type d -exec sh -c '(echo {} && cd {} && git pull)' \;"
 alias gff="find . -maxdepth 1 -mindepth 1 -type d -exec sh -c '(echo {} && cd {} && git fetch)' \;"
 alias gss="find . -maxdepth 1 -mindepth 1 -type d -exec sh -c '(echo {} && cd {} && git -c color.status=always status -s)' \;"
-
-# VAGRANT
-alias cdv="cd /Users/andrewpearson/Storage/Code/VMs/vagrant/"
 
 # SEARCH
 alias search="find . | grep"
@@ -34,9 +30,6 @@ alias wip='cd "$WIP"'
 # SITES
 alias lon="ssh root@londonparkour.com"
 
-# SCRIPTS__TOOLS Install
-alias gapply="${INSTALL_DIR}/install.sh"
-
 # PUPPET
 alias papply="/opt/puppetlabs/bin/puppet apply --disable_warnings deprecations /etc/puppetlabs/code/environments/production/manifests/";
 alias cdpuppet="cd /etc/puppetlabs/code/environments/production";
@@ -47,9 +40,6 @@ alias tf="terraform"
 # PHPUNIT
 alias pu="phpunit --testdox"
 alias purun="phpunit --testdox --coverage-html tests/report"
-
-# VAGRANT
-alias cdvagrant="cd /Users/andrewpearson/Storage/Code/VMs/vagrant"
 
 # DIRECTORIES
 alias cdbin="cd /usr/local/bin"
