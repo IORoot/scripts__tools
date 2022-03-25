@@ -11,9 +11,10 @@ install "fonts"
 install "gitconfig"
 install "gitignore"
 
-# ZSH Plugins
+# ZSH / VIM Plugins
 install "z-syntax-highlight"
 install "z-autosuggestions"
+install "vundle"
 
 # Homebrew
 install "hb-exa"

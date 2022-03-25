@@ -4,8 +4,35 @@ set nocompatible
 " Helps force plug-ins to load correctly when it is turned back on below.
 filetype off
 
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+
+" PLUGINS TO INSTALL
+call vundle#begin()
+    Plugin 'joshdick/onedark.vim'
+    Plugin 'vim-airline/vim-airline'
+call vundle#end()            " required
+
+filetype plugin indent on    " required
+
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList          - list configured plugins
+" :PluginInstall(!)    - install (update) plugins
+" :PluginSearch(!) foo - search (or refresh cache first) for foo
+" :PluginClean(!)      - confirm (or auto-approve) removal of unused plugins
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+
 " Turn on syntax highlighting.
 syntax on
+
+" THEMES
+colorscheme onedark
+let g:airline_theme='onedark'
 
 " For plug-ins to load correctly.
 filetype plugin indent on
@@ -15,6 +42,7 @@ set modelines=0
 
 " Automatically wrap text that extends beyond the screen length.
 set wrap
+
 " Vim's auto indentation feature does not work properly with text copied from outside of Vim. Press the <F2> key to toggle paste mode on/off.
 nnoremap <F2> :set invpaste paste?<CR>
 imap <F2> <C-O>:set invpaste paste?<CR>
@@ -79,7 +107,3 @@ vnoremap <Space> zf
 " Automatically save and load folds
 autocmd BufWinLeave *.* mkview
 autocmd BufWinEnter *.* silent loadview"
-
-" colorscheme sublimemonokai
-" colorscheme molokai
-" colorscheme onehalf
