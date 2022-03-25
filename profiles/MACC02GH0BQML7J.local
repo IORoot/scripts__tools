@@ -33,6 +33,7 @@ install "hb-pe-client"
 install "hb-puppet"
 install "hb-kubernetes-cli"
 install "hb-kubectx"
+install "hb-azure-cli"
 
 # NPM 
 install "npm-postcss"
