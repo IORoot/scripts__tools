@@ -31,6 +31,8 @@ install "hb-node"
 install "hb-neofetch"
 install "hb-pe-client"
 install "hb-puppet"
+install "hb-kubernetes-cli"
+install "hb-kubectx"
 
 # NPM 
 install "npm-postcss"
