@@ -41,6 +41,10 @@ alias tf="terraform"
 alias pu="phpunit --testdox"
 alias purun="phpunit --testdox --coverage-html tests/report"
 
+# DOCKER / DOCKER-COMPOSE
+alias doc="docker"
+alias dc="docker-compose"
+
 # DIRECTORIES
 alias cdbin="cd /usr/local/bin"
 

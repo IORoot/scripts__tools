@@ -8,7 +8,7 @@ if [ -f "/usr/local/bin/brew" ]; then
     if [ -d /usr/local/Cellar/terraform@0.12 ]; then
         printf "Already Installed\n"
     else
-        brew list terraform 1>/dev/null || brew install terraform@0.12
+        brew list terraform@0.12 1>/dev/null || brew install terraform@0.12
         printf "DONE\n"
     fi
 
