@@ -33,7 +33,8 @@ install "hb-neofetch"
 install "hb-pe-client"
 install "hb-puppet"
 install "hb-qcachegrind"
-install "hb-python"
+install "hb-python2"
+install "hb-python3"
 
 # NPM 
 install "npm-postcss"
