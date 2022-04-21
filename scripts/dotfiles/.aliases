@@ -45,7 +45,7 @@ alias purun="phpunit --testdox --coverage-html tests/report"
 alias doc="docker"
 alias dc="docker-compose"
 alias dcup="docker-compose up -d"
-alias dcrebuild="docker-compose build"
+alias dcrebuild="docker-compose up --build --force-recreate --no-deps -d"
 
 # DIRECTORIES
 alias cdbin="cd /usr/local/bin"
