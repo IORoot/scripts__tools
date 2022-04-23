@@ -39,3 +39,6 @@ install "hb-python3"
 # NPM 
 install "npm-postcss"
 install "npm-nodemon"
+
+# PIP (Python)
+install "pip-pwncat"
