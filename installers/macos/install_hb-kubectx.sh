@@ -8,7 +8,7 @@ if [ -f "/usr/local/bin/brew" ]; then
     if [ -d /usr/local/Cellar/kubectx ]; then
         printf "Already Installed\n"
     else
-        brew list terraform 1>/dev/null || brew install kubectx
+        brew list kubectx 1>/dev/null || brew install kubectx
         printf "DONE\n"
     fi
 

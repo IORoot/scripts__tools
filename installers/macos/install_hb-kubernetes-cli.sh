@@ -8,7 +8,7 @@ if [ -f "/usr/local/bin/brew" ]; then
     if [ -d /usr/local/Cellar/kubernetes-cli ]; then
         printf "Already Installed\n"
     else
-        brew list terraform 1>/dev/null || brew install kubernetes-cli
+        brew list kubectl 1>/dev/null || brew install kubectl
         printf "DONE\n"
     fi
 

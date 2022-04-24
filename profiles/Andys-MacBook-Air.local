@@ -35,10 +35,9 @@ install "hb-puppet"
 install "hb-qcachegrind"
 install "hb-python2"
 install "hb-python3"
+install "hb-kubernetes-cli"
+install "hb-kubectx"
 
 # NPM 
 install "npm-postcss"
 install "npm-nodemon"
-
-# PIP (Python)
-install "pip-pwncat"
