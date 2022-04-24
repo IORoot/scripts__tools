@@ -47,6 +47,10 @@ alias dc="docker-compose"
 alias dcup="docker-compose up -d"
 alias dcrebuild="docker-compose up --build --force-recreate --no-deps -d"
 
+# KUBERNETES
+alias k="kubectl"
+alias kx="kubectx"
+
 # DIRECTORIES
 alias cdbin="cd /usr/local/bin"
 
