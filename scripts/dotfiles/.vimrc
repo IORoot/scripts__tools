@@ -11,6 +11,8 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
     Plugin 'joshdick/onedark.vim'
     Plugin 'vim-airline/vim-airline'
+    Plugin 'preservim/nerdtree'
+    Plugin 'ryanoasis/vim-devicons'
 call vundle#end()            " required
 
 filetype plugin indent on    " required
@@ -107,3 +109,8 @@ vnoremap <Space> zf
 " Automatically save and load folds
 autocmd BufWinLeave *.* mkview
 autocmd BufWinEnter *.* silent loadview"
+
+" Start NERDTree and leave the cursor in it.
+autocmd VimEnter * NERDTree
+nnoremap <C-n> :NERDTreeFocus<CR>
+let NERDTreeShowHidden=1
