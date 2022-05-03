@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# Nodes
+alias fun="ssh -A root@fun01"
+alias metrics="ssh -A root@metrics01"
+alias lon="ssh root@londonparkour.com"
+
 # General
 alias hosts="code /etc/hosts"
 alias aliasls="grep -i --color -e '^alias\s+*' ~/scripts__tools/scripts/dotfiles/.aliases* | sed 's/alias //' | grep --color -e ':[a-z][a-z0-9]*'"
@@ -26,9 +31,6 @@ alias top5='du -a . | sort -n -r | head -n 5'
 # Work In Progress WIP
 alias wipp='WIP=`pwd`'
 alias wip='cd "$WIP"'
-
-# SITES
-alias lon="ssh root@londonparkour.com"
 
 # PUPPET
 alias papply="/opt/puppetlabs/bin/puppet apply --disable_warnings deprecations /etc/puppetlabs/code/environments/production/manifests/";
