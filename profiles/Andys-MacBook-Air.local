@@ -39,6 +39,7 @@ install "hb-kubernetes-cli"
 install "hb-kubectx"
 install "hb-helm"
 install "hb-cfssl"
+install "hb-yarn"
 
 # NPM 
 install "npm-postcss"
