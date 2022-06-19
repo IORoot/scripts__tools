@@ -1,23 +1,27 @@
 #!/bin/sh
 
-# https://stackoverflow.com/questions/192249/how-do-i-parse-command-line-arguments-in-bash
+export INPUT_PATH="/"
+export USER=$(whoami)
+export WIDTH=$(tput cols)
 
-INPUT_PATH="/"
-USER=$(whoami)
-WIDTH=$(tput cols)
-
-RIGHT_COL_1_WIDTH=10
-VERTICALS_WIDTH=3
-EOL_WIDTH=1
-LEFT_COL_WIDTH=$(( $WIDTH - $RIGHT_COL_1_WIDTH - $VERTICALS_WIDTH - $EOL_WIDTH ))
+export RIGHT_COL_1_WIDTH=10
+export RIGHT_COL_2_WIDTH=30
+export RIGHT_COL_3_WIDTH=6
+export RIGHT_COL_4_WIDTH=20
+export VERTICALS_WIDTH=3
+export EOL_WIDTH=1
+export LEFT_COL_WIDTH=$(( $WIDTH - $RIGHT_COL_1_WIDTH - $VERTICALS_WIDTH - $RIGHT_COL_2_WIDTH - $VERTICALS_WIDTH - $RIGHT_COL_3_WIDTH - $VERTICALS_WIDTH - $RIGHT_COL_4_WIDTH - $VERTICALS_WIDTH - $EOL_WIDTH ))
 
 SCRIPT_NAME=$0
 SCRIPT_PATH=$(cd "$(dirname "${BASH_SOURCE[0]}")" &>/dev/null && pwd -P)
 
-FLAG_VERBOSE=NO
-FLAG_RAW=NO
-RUN_STANDARD=NO
-RUN_EXECUTABLE=NO
+FLAG_VERSIONS="NO"
+FLAG_EXECUTABLE="NO"
+FLAG_RAW="NO"
+FLAG_MIMETYPE="NO"
+FLAG_SUID="NO"
+RUN_STANDARD="NO"
+RUN_EXECUTABLE="NO"
 
 
 
@@ -116,13 +120,20 @@ usage(){
     printf "\n"
     usage_header
     print_line "-" $WIDTH
-    usage_flag -h --help "Show this help"
-    usage_flag -v --verbose "Increase output verbosity"
-    usage_flag -s --standard "Search standard program locations"
+    print_header "Search Methods"
+    usage_flag -s --standard "Search standard program locations (overrides [path])"
     usage_flag -e --executable "Find all executable (+x) files on system"
-    usage_flag -i --inputpath "Change folder to search in [/]"
-    usage_flag -r --raw "raw output."
     print_line "-" $WIDTH
+    print_header "Display Parameters"
+    usage_flag -r --raw "raw output."
+    usage_flag -x --exec "Check if file is executable. (automatically set with -e)"
+    usage_flag -t --type "Check if file is binary or text"
+    usage_flag -u --suid "Check if file has SUID / SGID bit set (superuser/supergroup)"
+    usage_flag -v --versions "Run commands with '--version' to find version number"
+    print_line "-" $WIDTH
+    usage_flag -h --help "Show this help"
+    print_line "-" $WIDTH
+
 }
 
 usage_flag(){
@@ -136,6 +147,13 @@ print_line(){
     printf ${NC}"$1"'%.s' $(eval "echo {1.."$(($2))"}");
     printf "\n"
 }
+
+print_header(){
+    printf ${Yellow}"$1";
+    printf "\n"
+}
+
+
 
 header()
 {
@@ -151,7 +169,7 @@ header()
     printf "${Cyan}%s\n" "${MESSAGE[@]}"; echo
 
     print_line "-" $WIDTH
-    printf "${Green}%-${LEFT_COL_WIDTH}s${White} | ${Yellow}%-${RIGHT_COL_1_WIDTH}s \n" "File" "Executable"
+    printf "${Green}%-${LEFT_COL_WIDTH}s${White} | ${Yellow}%-${RIGHT_COL_1_WIDTH}s ${NC}| ${Yellow}%${RIGHT_COL_2_WIDTH}s ${NC}| ${Yellow}%${RIGHT_COL_3_WIDTH}s ${NC}| ${Yellow}%${RIGHT_COL_4_WIDTH}s \n" "File" "Executable" "Mimetype" "SUID" "Version"
     print_line "-" $WIDTH
 }
 
@@ -167,14 +185,31 @@ process_arguments()
         usage 
     fi
 
+    # Is last parameter a path? 
+    if [ -d "${@: -1}" ]; then 
+        INPUT_PATH="${@: -1}"
+    fi
+
     while [ $# -gt 0 ]; do
         case $1 in
-            -v|--verbose)
-                eval FLAG_VERBOSE="YES"
+            -v|--versions)
+                eval FLAG_VERSIONS="YES"
                 shift # past argument
                 ;;
             -r|--raw)
                 eval FLAG_RAW="YES"
+                shift # past value
+                ;;
+            -x|--exec)
+                eval FLAG_EXECUTABLE="YES"
+                shift # past value
+                ;;
+            -t|--type)
+                eval FLAG_MIMETYPE="YES"
+                shift # past value
+                ;;
+            -u|--suid)
+                eval FLAG_SUID="YES"
                 shift # past value
                 ;;
             -s|--standard)
@@ -183,6 +218,7 @@ process_arguments()
                 ;;
             -e|--executables)
                 eval RUN_EXECUTABLE="YES"
+                eval FLAG_EXECUTABLE="YES"
                 shift # past value
                 ;;
             -h|--help)
@@ -207,7 +243,7 @@ process_arguments()
 }
 
 # ┌──────────────────────────────────────┐ 
-# │           Search functions           │░
+# │        Search for Executables        │░
 # └──────────────────────────────────────┘░
 #  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 search_executables()
@@ -218,14 +254,15 @@ search_executables()
 
     header "Searching for all files with executable permissions set (+111)" $INPUT_PATH
 
-    if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-        find $INPUT_PATH -type f -executable -exec sh -c 'check_permissions "$0" "$1"' {} "$FLAG_RAW" \;;
-    else
-        find $INPUT_PATH -type f -perm +111 -exec sh -c 'check_permissions "$0" "$1"' {} "$FLAG_RAW" \;;
-    fi
+    find $INPUT_PATH -type f -perm +111 -exec sh -c 'run_checks "$0" "$1" "$2" "$3" "$4" "$5"' {} "$FLAG_RAW" "$FLAG_EXECUTABLE"  "$FLAG_VERSIONS" "$FLAG_MIMETYPE" "$FLAG_SUID" \;;
 
 }
 
+# ┌──────────────────────────────────────┐ 
+# │      Search Standard Locations       │░
+# │      (override input path)   )       │░
+# └──────────────────────────────────────┘░
+#  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 search_standard()
 {
     if [[ ${RUN_STANDARD} != "YES" ]]; then
@@ -251,7 +288,7 @@ search_standard()
 
     for INPUT_PATH in "${PathList[@]}"; do
         if [ -d $INPUT_PATH ]; then
-            find $INPUT_PATH -type f -perm +111 -exec sh -c 'check_permissions "$0" "$1"' {} "$FLAG_RAW" \;;
+            find $INPUT_PATH -type f -perm +111 -exec sh -c 'run_checks "$0" "$1" "$2" "$3" "$4" "$5"' {} "$FLAG_RAW" "$FLAG_EXECUTABLE" "$FLAG_VERSIONS" "$FLAG_MIMETYPE" "$FLAG_SUID" \;;
         fi
     done
 
@@ -262,29 +299,76 @@ search_standard()
 # │           Checker functions          │░
 # └──────────────────────────────────────┘░
 #  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
-check_permissions()
+run_checks()
 {
     cli_colours
-    WIDTH=$(tput cols)
-    RIGHT_COL_1_WIDTH=10
-    VERTICALS_WIDTH=3
-    EOL_WIDTH=1
-    LEFT_COL_WIDTH=$(( $WIDTH - $RIGHT_COL_1_WIDTH - $VERTICALS_WIDTH - $EOL_WIDTH ))
 
     FILE=$1
     FLAG_RAW=$2
+    FLAG_EXECUTABLE=$3
+    FLAG_VERSIONS=$4
+    FLAG_MIMETYPE=$5
+    FLAG_SUID=$6
 
-    test -x $FILE && EXEXCUTABLE="YES" || EXEXCUTABLE=""
+    if [ "$FLAG_EXECUTABLE" == "YES" ]; then
+        check_permissions
+    fi
+
+    if [ "$FLAG_MIMETYPE" == "YES" ]; then
+        check_mimetype
+    fi
+
+    if [ "$FLAG_SUID" == "YES" ]; then
+        check_suid
+    fi
+
+    if [ "$FLAG_VERSIONS" == "YES" ]; then
+        check_versions
+    fi
 
     if [ ${FLAG_RAW} = "YES" ]; then
         printf "${FILE} \n";
     else
-        printf "${Green}%-${LEFT_COL_WIDTH}s${White} | ${Green}%5s ${White}%s\n" "${FILE}" "${EXEXCUTABLE}";
+        printf "${Green}%-${LEFT_COL_WIDTH}s${White} | ${Green}%10s ${White}| ${White}%30s ${White}| ${Red}%6s ${White}| ${Cyan}%20s \n" "${FILE}" "${EXECUTABLE}" "${MIMETYPE}" "${SUIDSET}" "${VERSION}";
     fi
 
 }
-# export to be able to run with a 'find' command
+export -f run_checks
+
+# ┌──────────────────────────────────────┐ 
+# │           TEST IF EXECUTABLE         │░
+# └──────────────────────────────────────┘░
+#  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+check_permissions()
+{
+    test -x $FILE && EXECUTABLE="YES" || EXECUTABLE="NO"
+    
+}
+# export to be able to run with a 'find' command loop
 export -f check_permissions
+
+check_versions()
+{
+    VERSION=$(${FILE} --version 2> /dev/null | head -n 1 | grep -o '[0-9.]*' | head -n 1)
+}
+export -f check_versions
+
+check_mimetype()
+{
+    MIMETYPE=$(file -b --mime-type $FILE | head -n 1)
+}
+export -f check_mimetype
+
+check_suid()
+{
+    IS_SET=$(find "$FILE" -perm +4000);
+    if [ -n "$IS_SET" ]; then
+        SUIDSET="Y"
+    else
+        SUIDSET="-"
+    fi
+}
+export -f check_suid
 
 # ┌──────────────────────────────────────┐ 
 # │          Run all functions           │░
@@ -292,6 +376,5 @@ export -f check_permissions
 #  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 cli_colours
 process_arguments $*
-
 search_standard
 search_executables
