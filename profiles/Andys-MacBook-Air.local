@@ -40,7 +40,6 @@ install "hb-kubectx"
 install "hb-helm"
 install "hb-cfssl"
 install "hb-yarn"
-install "hb-flyctl"
 
 # NPM 
 install "npm-postcss"

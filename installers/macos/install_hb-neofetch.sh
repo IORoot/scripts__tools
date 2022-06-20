@@ -15,3 +15,13 @@ if [ -f "/usr/local/bin/brew" ]; then
 else
     printf "HOMEBREW Not Installed\n"
 fi
+
+
+# Config file
+if [ -L ~/.config/neofetch/config.conf ]; then
+    printf "Already Installed\n"
+else
+    mv ~/.config/neofetch/config.conf ~/.config/neofetch/config.conf.orig
+    ln -s $INSTALL_DIR/scripts/dotfiles/.neofetch_config.conf ~/.config/neofetch/config.conf
+    printf "DONE\n"
+fi
