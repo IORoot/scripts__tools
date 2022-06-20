@@ -252,9 +252,9 @@ search_executables()
         return 0
     fi
 
-    header "Searching for all files with executable permissions set (+111)" $INPUT_PATH
+    header "Searching for all files with executable permissions set (/111)" $INPUT_PATH
 
-    find $INPUT_PATH -type f -perm +111 -exec sh -c 'run_checks "$0" "$1" "$2" "$3" "$4" "$5"' {} "$FLAG_RAW" "$FLAG_EXECUTABLE"  "$FLAG_VERSIONS" "$FLAG_MIMETYPE" "$FLAG_SUID" \;;
+    find $INPUT_PATH -type f -perm /111 -exec sh -c 'run_checks "$0" "$1" "$2" "$3" "$4" "$5"' {} "$FLAG_RAW" "$FLAG_EXECUTABLE"  "$FLAG_VERSIONS" "$FLAG_MIMETYPE" "$FLAG_SUID" \;;
 
 }
 
@@ -288,7 +288,7 @@ search_standard()
 
     for INPUT_PATH in "${PathList[@]}"; do
         if [ -d $INPUT_PATH ]; then
-            find $INPUT_PATH -type f -perm +111 -exec sh -c 'run_checks "$0" "$1" "$2" "$3" "$4" "$5"' {} "$FLAG_RAW" "$FLAG_EXECUTABLE" "$FLAG_VERSIONS" "$FLAG_MIMETYPE" "$FLAG_SUID" \;;
+            find $INPUT_PATH -type f -perm /111 -exec sh -c 'run_checks "$0" "$1" "$2" "$3" "$4" "$5"' {} "$FLAG_RAW" "$FLAG_EXECUTABLE" "$FLAG_VERSIONS" "$FLAG_MIMETYPE" "$FLAG_SUID" \;;
         fi
     done
 
