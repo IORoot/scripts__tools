@@ -17,6 +17,12 @@ else
 fi
 
 
+#  Install CUSTOM version )from forked github repo
+if [ ! -f /usr/local/bin/neofetch2 ]; then
+    wget -O /usr/local/bin/neofetch2 https://raw.githubusercontent.com/IORoot/neofetch/master/neofetch 
+    chmod +x  /usr/local/bin/neofetch2
+fi
+
 # Config file
 if [ -L ~/.config/neofetch/config.conf ]; then
     printf "Already Installed\n"
