@@ -38,7 +38,7 @@ memory_unit="mib"
 # infobar: 'info [---=======]'
 # barinfo: '[---=======] info'
 # off:     'info'
-memory_display="barinfo"
+memory_display="bar"
 
 #
 # Returns

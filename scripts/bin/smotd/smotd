@@ -17,12 +17,14 @@ version=0.1
 
 # ┌──────────────────────────────────────┐ 
 # │                                      │░
-# │           SOURCE CONSTANTS           │░
+# │           SOURCE COMPONENTS          │░
 # │                                      │░
 # └──────────────────────────────────────┘░
 #  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
-. ./constants/colours
-. ./constants/bar
+. ./components/colours
+. ./components/bar
+. ./components/row
+. ./components/title
 
 # ┌──────────────────────────────────────┐ 
 # │                                      │░
@@ -66,111 +68,44 @@ plugins()
 
         filename="get_${plugin_name}"               # Filename
         . ./plugins/$filename                       # Source File
-        $filename $plugin_parameter  /dev/null   # Run, hide errors
+        $filename $plugin_parameter 2> /dev/null   # Run, hide errors
     done
 
 }
 plugins
 
 
-# ┌──────────────────────────────────────┐ 
-# │                                      │░
-# │              VARIABLES               │░
-# │                                      │░
-# └──────────────────────────────────────┘░
-#  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
-WIDTH=$(tput cols)
 
-
-# Make the line 80chars long, no matter the title length.
-title(){
-
-    TITLE=$1
-    COUNT=${#TITLE}
-    let "LENGTH = ($WIDTH-$COUNT)/2"
-    for ((i=1; i<=$LENGTH; i++)); do
-        printf "${I_Black}-"
-    done
-
-    printf "${Red} $TITLE "
-
-    for ((i=1; i<=$LENGTH; i++)); do
-        printf "${I_Black}-"
-    done
-    
-    printf "\n"
-}
-
-#
-# usage:
-# row TITLE1 DATA1 TITLE2 DATA2 ...
-row()
+system()
 {
-    info_width=10
-
-
-    if [ "$#" -lt 1 ]; then
-        echo "Need to pass a parameter"
-        return
-    fi
-
-    number_of_parameters=$#
-    let column_count=$number_of_parameters/2
-    let column_width=$WIDTH/$column_count
-    let data_width=column_width-$info_width
-
-    echo "width=$data_width"
-
-
-    # for (( current=1; current<=${column_count}; current++ ))
-    for current in $( eval echo {0..$column_count} )
-    do 
-    echo $current
-        info=${!current}
-        data=${!next}
-        printf "${I_Black}%-${info_width}s: ${Cyan}%-${info_width}s\n\n\n" "${info}" "${data}"
-    done
-
-}
-
-
-# LOGO
-
-output_node()
-{
-    # NODE
+    # SYSTEM
     printf "${LOGO}\n"
     title "${HOSTNAME}"
-    printf "${I_Black}HOST  : ${Cyan}%-40s ${I_Black} UP  : ${Cyan}%-40s\n" "${HOSTNAME}"       "${UPTIME}"
 
-    row "HOST" "${HOSTNAME}" "UPTIME" "${UPTIME}"
+    row "HOST"      "${HOSTNAME}"   "APACHE" "${APACHE}"    "UPTIME" "${CPU_USAGE}"
+    row "OS"        "${OS}"         "PHP"    "${PHP}"       "MEMORY" "${MEMORY}"
+    row "MODEL"     "${MODEL}"      "MySQL"  "${MYSQL}"     "DISK" "${DISK}"
+    row "LOCAL IP"  "${LOCAL_IP}"   "SSH"    "${SSH}"       "" ""
+    row "PUBLIC IP" "${PUBLIC_IP}" 
 
-    printf "${I_Black}OS    : ${Cyan}%-40s ${I_Black} CPU : ${Cyan}%-40s\n" "${OS}"             "${CPU_USAGE}"
-    printf "${I_Black}MODEL : ${Cyan}%-40s ${I_Black} HDD : ${Cyan}%-40s\n" "${MODEL}"          ""
-    printf "${I_Black}INT IP: ${Cyan}%-40s ${I_Black} HDD : ${Cyan}%-40s\n" "${LOCAL_IP}"       "${DISK}"
-    printf "${I_Black}EXT IP: ${Cyan}%-40s ${I_Black} MEM : ${Cyan}%-40s\n" "${PUBLIC_IP}"      "${MEMORY}"
-}
-
-output_services()
-{
-    # SERVICES
-    title "Services"
-    printf "${I_Black}PHP : ${Cyan}%-40s ${I_Black}  :${Green} %-40s\n" "${MYSQL}"    
-    printf "${I_Black}MSQL: ${Cyan}%-40s ${I_Black}  :${Green} %-40s\n" "${PHP}" 
-    printf "${I_Black}WEB : ${Cyan}%-40s ${I_Black}  :${Green} %-40s\n" "${APACHE}" 
-    printf "${I_Black}SSH : ${Cyan}%-40s ${I_Black}  :${Green} %-40s\n" "${SSH}"
-    printf "${I_Black}RAN : ${Cyan}%-40s ${I_Black}  :${Green} %-40s\n" "${PUPPET_LASTRAN}"
-    printf "${I_Black}LOC : ${Cyan}%-40s ${I_Black}  :${Green} %-40s\n" "${PUPPET_LOCKED}"
-    printf "${I_Black}TXT : ${Cyan}%-40s ${I_Black}  :${Green} %-40s\n" "${PUPPET_MESSAGE}"
     
+
 }
+
+puppet()
+{
+    title "Puppet"
+    row "Last Ran" ${PUPPET_LASTRAN} "Locked" ${PUPPET_LOCKED} "Message" "${PUPPET_MESSAGE}"
+}
+
 
 helpme(){
     title "Help"
-    printf "${I_Black}HELP: ${Orange}'help' will list custom scripts. 'cheat' for command cheatsheet.\n"
+    row "help" "List custom scripts." 
+    row "cheat" "command cheatsheet."
 }
 
-output_node;
-output_services;
-# helpme;
-# title "◣◥";
+system;
+puppet
+helpme;
+title "◣◥";
