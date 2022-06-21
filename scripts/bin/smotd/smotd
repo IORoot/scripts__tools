@@ -41,9 +41,9 @@ plugins()
         "memory"
         "disk"
         "model"
-        "systemctl:mysql"   
-        "systemctl:php"   
-        "systemctl:apache"   
+        # "systemctl:mysql"   
+        # "systemctl:php"   
+        # "systemctl:apache"   
         "systemctl:ssh"   
     )
 
@@ -57,7 +57,7 @@ plugins()
 
         filename="get_${plugin_name}"               # Filename
         . ./plugins/$filename                       # Source File
-        $filename $plugin_parameter 2> /dev/null   # Run, hide errors
+        $filename $plugin_parameter  /dev/null   # Run, hide errors
     done
 
 }
@@ -149,10 +149,10 @@ output_services()
 {
     # SERVICES
     title "Services"
-    printf "${I_Black}PHP : ${Cyan}%-40s ${I_Black} STATE :${Green} %-40s\n" "${MYSQL}"    "${PHP_STATE}"
-    # printf "${I_Black}MSQL: ${Cyan}%-40s ${I_Black} STATE :${Green} %-40s\n" "${MYSQL_VER}"  "${MYSQL_STATE}" 
-    # printf "${I_Black}WEB : ${Cyan}%-40s ${I_Black} STATE :${Green} %-40s\n" "${APACHE_VER}" "${APACHE_STATE}"
-    # printf "${I_Black}PUPP: ${Cyan}%-40s ${I_Black} RAN   :${Green} %-40s\n" "${PUPPET_VER}" "${PUPPET_RAN}"
+    printf "${I_Black}PHP : ${Cyan}%-40s ${I_Black} STATE :${Green} %-40s\n" "${MYSQL}"    
+    printf "${I_Black}MSQL: ${Cyan}%-40s ${I_Black} STATE :${Green} %-40s\n" "${PHP}" 
+    printf "${I_Black}WEB : ${Cyan}%-40s ${I_Black} STATE :${Green} %-40s\n" "${APACHE}" 
+    printf "${I_Black}PUPP: ${Cyan}%-40s ${I_Black} RAN   :${Green} %-40s\n" "${SSH}"
 }
 
 helpme(){
