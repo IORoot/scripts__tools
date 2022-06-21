@@ -5,6 +5,21 @@
 
 version=0.1
 
+# The REAL location of this file.
+file_location()
+{
+    SOURCE="${BASH_SOURCE[0]:-$0}";
+    while [ -L "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symlink
+    DIR="$( cd -P "$( dirname -- "$SOURCE"; )" &> /dev/null && pwd 2> /dev/null; )";
+    SOURCE="$( readlink -- "$SOURCE"; )";
+    [[ $SOURCE != /* ]] && SOURCE="${DIR}/${SOURCE}"; # if $SOURCE was a relative symlink, we need to resolve it relative to the path where the symlink file was located
+    done
+    SCRIPT_DIR="$( cd -P "$( dirname -- "$SOURCE"; )" &> /dev/null && pwd 2> /dev/null; )";
+}
+file_location
+
+
+
 # Parts of this has been taken from neofetch. https://github.com/dylanaraps/neofetch
 # This is a customised motd with less built-in than neofetch
 # ┌──────────────────────────────────────┐ 
@@ -13,7 +28,7 @@ version=0.1
 # │                                      │░
 # └──────────────────────────────────────┘░
 #  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
-. ./config.conf
+. ${SCRIPT_DIR}/config.conf
 
 # ┌──────────────────────────────────────┐ 
 # │                                      │░
@@ -21,10 +36,10 @@ version=0.1
 # │                                      │░
 # └──────────────────────────────────────┘░
 #  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
-. ./components/colours
-. ./components/bar
-. ./components/row
-. ./components/title
+. ${SCRIPT_DIR}/components/colours
+. ${SCRIPT_DIR}/components/bar
+. ${SCRIPT_DIR}/components/row
+. ${SCRIPT_DIR}/components/title
 
 # ┌──────────────────────────────────────┐ 
 # │                                      │░
@@ -67,7 +82,7 @@ plugins()
         IFS=: read plugin_name plugin_parameter <<< $plugin
 
         filename="get_${plugin_name}"               # Filename
-        . ./plugins/$filename                       # Source File
+        . ${SCRIPT_DIR}/plugins/$filename                       # Source File
         $filename $plugin_parameter 2> /dev/null   # Run, hide errors
     done
 
