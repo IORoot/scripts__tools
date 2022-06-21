@@ -149,10 +149,10 @@ output_services()
 {
     # SERVICES
     title "Services"
-    printf "${I_Black}PHP : ${Cyan}%-40s ${I_Black} STATE :${Green} %-40s\n" "${MYSQL}"    
-    printf "${I_Black}MSQL: ${Cyan}%-40s ${I_Black} STATE :${Green} %-40s\n" "${PHP}" 
-    printf "${I_Black}WEB : ${Cyan}%-40s ${I_Black} STATE :${Green} %-40s\n" "${APACHE}" 
-    printf "${I_Black}PUPP: ${Cyan}%-40s ${I_Black} RAN   :${Green} %-40s\n" "${SSH}"
+    printf "${I_Black}PHP : ${Cyan}%-40s ${I_Black}  :${Green} %-40s\n" "${MYSQL}"    
+    printf "${I_Black}MSQL: ${Cyan}%-40s ${I_Black}  :${Green} %-40s\n" "${PHP}" 
+    printf "${I_Black}WEB : ${Cyan}%-40s ${I_Black}  :${Green} %-40s\n" "${APACHE}" 
+    printf "${I_Black}SSH : ${Cyan}%-40s ${I_Black}  :${Green} %-40s\n" "${SSH}"
 }
 
 helpme(){
