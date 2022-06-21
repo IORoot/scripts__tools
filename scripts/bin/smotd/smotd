@@ -42,6 +42,9 @@ plugins()
         "disk"
         "model"
         "systemctl:mysql"   
+        "systemctl:php"   
+        "systemctl:apache"   
+        "systemctl:ssh"   
     )
 
 
