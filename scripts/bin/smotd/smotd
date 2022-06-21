@@ -116,7 +116,7 @@ output_node()
     printf "${I_Black}OS  : ${Cyan}%-40s ${I_Black} CPU : ${Cyan}%-40s\n" "${OS}"             "${CPU_USAGE}"
     printf "${I_Black}PUB : ${Cyan}%-40s ${I_Black} HDD : ${Cyan}%-40s\n" "${LOCAL_IP}"       "${DISK}"
     printf "${I_Black}PRI : ${Cyan}%-40s ${I_Black} MEM : ${Cyan}%-40s\n" "${PUBLIC_IP}"      "${MEMORY}"
-    printf "${I_Black}CPU : ${Cyan}%-54s ${I_Black} MOD : ${Cyan}%-40s\n" "${CPU_USAGE}"      "${MODEL}"
+    printf "${I_Black}- : ${Cyan}%-54s ${I_Black} MOD : ${Cyan}%-40s\n" "-"      "${MODEL}"
 }
 
 output_services()
