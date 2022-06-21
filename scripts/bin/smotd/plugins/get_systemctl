@@ -31,5 +31,5 @@ get_systemctl(){
         SERVICE_STATUS=$(systemctl status "${SERVICENAME}" 2> /dev/null | grep "Active:" | awk '{print $2}')
     fi
 
-    declare ${VARIABLE_NAME}=$SERVICE_STATUS
+    export declare ${VARIABLE_NAME}=$SERVICE_STATUS
 }
