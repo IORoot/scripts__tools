@@ -34,7 +34,7 @@ bar_length=15
 # neofetch --bar_colors 3 4
 # neofetch --bar_colors distro 5
 bar_color_elapsed="Green"
-bar_color_total="Red"
+bar_color_total="I_Black"
 bar_color_text="Cyan"
 
 bar() {
