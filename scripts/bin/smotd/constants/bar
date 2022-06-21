@@ -35,6 +35,7 @@ bar_length=15
 # neofetch --bar_colors distro 5
 bar_color_elapsed="Green"
 bar_color_total="Red"
+bar_color_text="Cyan"
 
 bar() {
     # Get the values.
@@ -45,8 +46,8 @@ bar() {
     printf -v total "%$((bar_length - elapsed))s"
 
     # Set the colors and swap the spaces for $bar_char_.
-    bar+="${!bar_color_elapsed}${prog// /${bar_char_elapsed}}"
-    bar+="${!bar_color_total}${total// /${bar_char_total}}"
+    bar+="${!bar_color_elapsed}${prog// /${bar_char_elapsed}}${!bar_color_text}"
+    bar+="${!bar_color_total}${total// /${bar_char_total}}${!bar_color_text}"
 
     printf "%b" "${bar}"
 }

@@ -31,7 +31,7 @@ CPU_CORES="logical"
 # infobar: 'info [---=======]'
 # barinfo: '[---=======] info'
 # off:     'info'
-CPU_DISPLAY="infobar"
+CPU_DISPLAY="barinfo"
 
 get_cpu_usage() {
     case $OS in

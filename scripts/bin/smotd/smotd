@@ -7,6 +7,13 @@ version=0.1
 
 # Parts of this has been taken from neofetch. https://github.com/dylanaraps/neofetch
 # This is a customised motd with less built-in than neofetch
+# ┌──────────────────────────────────────┐ 
+# │                                      │░
+# │            SOURCE CONFIG             │░
+# │                                      │░
+# └──────────────────────────────────────┘░
+#  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+. ./config.conf
 
 # ┌──────────────────────────────────────┐ 
 # │                                      │░
@@ -41,10 +48,12 @@ plugins()
         "memory"
         "disk"
         "model"
-        # "systemctl:mysql"   
-        # "systemctl:php"   
-        # "systemctl:apache"   
+        "systemctl:mysql"   
+        "systemctl:php"   
+        "systemctl:apache"   
         "systemctl:ssh"   
+        "puppet"
+        "logo"
     )
 
 
@@ -75,42 +84,6 @@ WIDTH=$(tput cols)
 
 
 
-
-
-# MacOS
-macos(){
-
-    HDD=$(df -H | sort | head -1 | awk '{print $2 "/"  $3}')
-
-}
-
-
-ubuntu(){
-    # PUBLIC_IP=$(curl -sS ifconfig.me)
-
-
-    HDD=$(df -H | sort | head -1 | awk '{print $2 "/"  $3}')
-
-    # PHP
-    PHP_VER=$(php -v | head -1 | cut -c 5-10)
-    PHP_SHORT_VER=$(php -v | head -1 | cut -c 5-7)
-    PHP_STATE=$(systemctl status php$PHP_SHORT_VER-fpm.service | grep "Active" | awk '{print $2}')
-
-    # MYSQL
-    MYSQL_STATE=$(systemctl status mysql.service | grep "Active" | awk '{print $2}')
-    MYSQL_VER=$(mysql --version | awk '{print $3}')
-
-    # APACHE
-    APACHE_STATE=$(systemctl status apache2.service | grep "Active" | awk '{print $2}')
-    APACHE_VER=$(apache2 -v | head -1 | awk '{print $3}' )
-
-    # PUPPET
-    PUPPET_VER=$(puppet --version)
-    PUPPET_RAN=$(head -n3 /opt/puppetlabs/puppet/cache/state/last_run_report.yaml 2> /dev/null | grep "time" | awk -F "'" '{print $2}' | cut -c 1-16)
-}
-
-
-
 # Make the line 80chars long, no matter the title length.
 title(){
 
@@ -137,12 +110,13 @@ title(){
 output_node()
 {
     # NODE
-    title "${NODE_NAME}"
+    printf "${LOGO}\n"
+    title "${HOSTNAME}"
     printf "${I_Black}HOST: ${Cyan}%-40s ${I_Black} UP  : ${Cyan}%-40s\n" "${HOSTNAME}"       "${UPTIME}"
     printf "${I_Black}OS  : ${Cyan}%-40s ${I_Black} CPU : ${Cyan}%-40s\n" "${OS}"             "${CPU_USAGE}"
     printf "${I_Black}PUB : ${Cyan}%-40s ${I_Black} HDD : ${Cyan}%-40s\n" "${LOCAL_IP}"       "${DISK}"
     printf "${I_Black}PRI : ${Cyan}%-40s ${I_Black} MEM : ${Cyan}%-40s\n" "${PUBLIC_IP}"      "${MEMORY}"
-    printf "${I_Black}CPU : ${Cyan}%-54s ${I_Black} MOD : ${Cyan}%-40s\n" "${CPU_USAGE}"       "${MODEL}"
+    printf "${I_Black}CPU : ${Cyan}%-54s ${I_Black} MOD : ${Cyan}%-40s\n" "${CPU_USAGE}"      "${MODEL}"
 }
 
 output_services()
@@ -153,6 +127,10 @@ output_services()
     printf "${I_Black}MSQL: ${Cyan}%-40s ${I_Black}  :${Green} %-40s\n" "${PHP}" 
     printf "${I_Black}WEB : ${Cyan}%-40s ${I_Black}  :${Green} %-40s\n" "${APACHE}" 
     printf "${I_Black}SSH : ${Cyan}%-40s ${I_Black}  :${Green} %-40s\n" "${SSH}"
+    printf "${I_Black}RAN : ${Cyan}%-40s ${I_Black}  :${Green} %-40s\n" "${PUPPET_LASTRAN}"
+    printf "${I_Black}LOC : ${Cyan}%-40s ${I_Black}  :${Green} %-40s\n" "${PUPPET_LOCKED}"
+    printf "${I_Black}TXT : ${Cyan}%-40s ${I_Black}  :${Green} %-40s\n" "${PUPPET_MESSAGE}"
+    
 }
 
 helpme(){
@@ -160,8 +138,6 @@ helpme(){
     printf "${I_Black}HELP: ${Orange}'help' will list custom scripts. 'cheat' for command cheatsheet.\n"
 }
 
-
-macos;
 output_node;
 output_services;
 # helpme;

@@ -69,7 +69,7 @@ disk_percent="on"
 # infobar: 'info [---=======]'
 # barinfo: '[---=======] info'
 # off:     'info'
-disk_display="infobar"
+disk_display="barinfo"
 
 get_disk() {
 
