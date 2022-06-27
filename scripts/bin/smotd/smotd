@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-# System Message Of The Day
-# (SMOTD)
+# Message Of The Day
+# (MOTD)
 
 version=0.1
 
