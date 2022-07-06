@@ -1,1 +1,1 @@
-./smotd/smotd
+./motd/motd
