@@ -111,6 +111,9 @@ autocmd BufWinLeave *.* mkview
 autocmd BufWinEnter *.* silent loadview"
 
 " Start NERDTree and leave the cursor in it.
-autocmd VimEnter * NERDTree
+autocmd VimEnter * NERDTree | wincmd p
 nnoremap <C-n> :NERDTreeFocus<CR>
 let NERDTreeShowHidden=1
+
+" NERDTree CLOSE on :q
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
