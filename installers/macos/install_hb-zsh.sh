@@ -4,7 +4,7 @@
 
 if [ -f "/opt/homebrew/bin/brew" ]; then
 
-    if [ -d /usr/local/Cellar/zsh ]; then
+    if [ -f /opt/homebrew/bin/zsh ]; then
         printf "Already Installed\n"
     else
         brew list zsh 1>/dev/null || brew install zsh     

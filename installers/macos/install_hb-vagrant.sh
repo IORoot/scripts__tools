@@ -5,7 +5,7 @@
 
 if [ -f "/opt/homebrew/bin/brew" ]; then
 
-    if [ -d /usr/local/Caskroom/vagrant ]; then
+    if [ -f /usr/local/Caskroom/vagrant ]; then
         printf "Already Installed\n"
     else
         brew list vagrant 1>/dev/null || brew install --cask vagrant                  #

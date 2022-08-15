@@ -5,7 +5,7 @@
 
 if [ -f "/opt/homebrew/bin/brew" ]; then
 
-    if [ -d /usr/local/Cellar/jq ]; then
+    if [ -f /opt/homebrew/bin/jq ]; then
         printf "Already Installed\n"
     else
         brew list jq 1>/dev/null || brew install jq                  #

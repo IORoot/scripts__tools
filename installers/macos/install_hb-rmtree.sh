@@ -5,10 +5,10 @@
 
 if [ -f "/opt/homebrew/bin/brew" ]; then
 
-    if [ -f /opt/homebrew/bin/php ]; then
+    if [ -d /opt/homebrew/Library/Taps/beeftornado/homebrew-rmtree ]; then
         printf "Already Installed\n"
     else
-        brew list php 1>/dev/null || brew install php                  #
+        brew list rmtree 1>/dev/null || brew tap beeftornado/rmtree                  #
         printf "DONE\n"
     fi
 

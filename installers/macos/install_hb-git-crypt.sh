@@ -5,7 +5,7 @@
 
 if [ -f "/opt/homebrew/bin/brew" ]; then
 
-    if [ -d /usr/local/Cellar/git-crypt ]; then
+    if [ -f /opt/homebrew/bin/git-crypt ]; then
         printf "Already Installed\n"
     else
         brew list git-crypt 1>/dev/null || brew install git-crypt                  #

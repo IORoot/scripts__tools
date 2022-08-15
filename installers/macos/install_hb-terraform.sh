@@ -5,10 +5,10 @@
 
 if [ -f "/opt/homebrew/bin/brew" ]; then
 
-    if [ -d /usr/local/Cellar/terraform@0.12 ]; then
+    if [ -f /opt/homebrew/bin/terraform ]; then
         printf "Already Installed\n"
     else
-        brew list terraform@0.12 1>/dev/null || brew install terraform@0.12
+        brew list terraform 1>/dev/null || brew install terraform
         printf "DONE\n"
     fi
 

@@ -4,7 +4,7 @@
 
 if [ -f "/opt/homebrew/bin/brew" ]; then
 
-    if [ -d /usr/local/Cellar/htop ]; then
+    if [ -f /opt/homebrew/bin/htop ]; then
         printf "Already Installed\n"
     else
         brew list htop 1>/dev/null || brew install htop

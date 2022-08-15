@@ -5,7 +5,7 @@
 
 if [ -f "/opt/homebrew/bin/brew" ]; then
 
-    if [ -d /usr/local/Cellar/minikube ]; then
+    if [ -f /opt/homebrew/bin/minikube ]; then
         printf "Already Installed\n"
     else
         brew list minikube 1>/dev/null || brew install minikube

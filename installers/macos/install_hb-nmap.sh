@@ -5,7 +5,7 @@
 
 if [ -f "/opt/homebrew/bin/brew" ]; then
 
-    if [ -d /usr/local/Cellar/nmap ]; then
+    if [ -f /opt/homebrew/bin/nmap ]; then
         printf "Already Installed\n"
     else
         brew list nmap 1>/dev/null || brew install nmap                  #

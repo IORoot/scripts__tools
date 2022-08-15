@@ -5,7 +5,7 @@
 
 if [ -f "/opt/homebrew/bin/brew" ]; then
 
-    if [ -d /usr/local/Cellar/kubernetes-cli ]; then
+    if [ -f /opt/homebrew/bin/kubernetes-cli ]; then
         printf "Already Installed\n"
     else
         brew list kubectl 1>/dev/null || brew install kubectl

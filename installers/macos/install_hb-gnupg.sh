@@ -5,7 +5,7 @@
 
 if [ -f "/opt/homebrew/bin/brew" ]; then
 
-    if [ -d /usr/local/Cellar/gnupg ]; then
+    if [ -f /opt/homebrew/bin/gnupg ]; then
         printf "Already Installed\n"
     else
         brew list gnupg 1>/dev/null || brew install gnupg                  #

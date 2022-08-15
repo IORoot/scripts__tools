@@ -5,7 +5,7 @@
 
 if [ -f "/opt/homebrew/bin/brew" ]; then
 
-    if [ -d /usr/local/Cellar/python@3.9 ]; then
+    if [ -f /opt/homebrew/bin/python3.10 ]; then
         printf "Already Installed\n"
     else
         brew list --cask python3 1>/dev/null || brew install python3

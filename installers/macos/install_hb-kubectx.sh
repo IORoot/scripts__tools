@@ -5,7 +5,7 @@
 
 if [ -f "/opt/homebrew/bin/brew" ]; then
 
-    if [ -d /usr/local/Cellar/kubectx ]; then
+    if [ -f /opt/homebrew/bin/kubectx ]; then
         printf "Already Installed\n"
     else
         brew list kubectx 1>/dev/null || brew install kubectx

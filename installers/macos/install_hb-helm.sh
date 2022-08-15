@@ -4,7 +4,7 @@
 
 if [ -f "/opt/homebrew/bin/brew" ]; then
 
-    if [ -d /usr/local/Cellar/helm ]; then
+    if [ -f /opt/homebrew/bin/helm ]; then
         printf "Already Installed\n"
     else
         brew list helm 1>/dev/null || brew install helm

@@ -5,7 +5,7 @@
 
 if [ -f "/opt/homebrew/bin/brew" ]; then
 
-    if [ -d /usr/local/Cellar/node ]; then
+    if [ -f /opt/homebrew/bin/node ]; then
         printf "Already Installed\n"
     else
         brew list node 1>/dev/null || brew install node                  #

@@ -5,7 +5,7 @@
 
 if [ -f "/opt/homebrew/bin/brew" ]; then
 
-    if [ -d /usr/local/Cellar/azure-cli ]; then
+    if [ -f /opt/homebrew/bin/azure-cli ]; then
         printf "Already Installed\n"
     else
         brew list terraform 1>/dev/null || brew install azure-cli

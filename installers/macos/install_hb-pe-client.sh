@@ -5,7 +5,7 @@
 
 if [ -f "/opt/homebrew/bin/brew" ]; then
 
-    if [ -d /usr/local/Caskroom/pe-client-tools ]; then
+    if [ -f /usr/local/Caskroom/pe-client-tools ]; then
         printf "Already Installed\n"
     else
         brew list --cask pe-client-tools 1>/dev/null || brew install puppetlabs/puppet/pe-client-tools                  #

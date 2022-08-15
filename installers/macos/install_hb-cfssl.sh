@@ -4,7 +4,7 @@
 
 if [ -f "/opt/homebrew/bin/brew" ]; then
 
-    if [ -d /usr/local/Cellar/cfssl ]; then
+    if [ -f /opt/homebrew/bin/cfssl ]; then
         printf "Already Installed\n"
     else
         brew list cfssl 1>/dev/null || brew install cfssl

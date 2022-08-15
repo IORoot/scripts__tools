@@ -5,7 +5,7 @@
 
 if [ -f "/opt/homebrew/bin/brew" ]; then
 
-    if [ -d /usr/local/Cellar/yarn ]; then
+    if [ -f /opt/homebrew/bin/yarn ]; then
         printf "Already Installed\n"
     else
         brew list yarn 1>/dev/null || brew install yarn                  #

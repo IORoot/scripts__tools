@@ -5,7 +5,7 @@
 
 if [ -f "/opt/homebrew/bin/brew" ]; then
 
-    if [ -d /usr/local/Cellar/exa ]; then
+    if [ -f /opt/homebrew/bin/exa ]; then
         printf "Already Installed\n"
     else
         brew list exa 1>/dev/null || brew install exa                  #
