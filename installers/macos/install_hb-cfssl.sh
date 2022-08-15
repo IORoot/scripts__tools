@@ -2,7 +2,7 @@
 
 # Dependencies
 
-if [ -f "/usr/local/bin/brew" ]; then
+if [ -f "/opt/homebrew/bin/brew" ]; then
 
     if [ -d /usr/local/Cellar/cfssl ]; then
         printf "Already Installed\n"

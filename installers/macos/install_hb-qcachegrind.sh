@@ -3,7 +3,7 @@
 # Dependencies
 # pandoc ✘, rust ✘
 
-if [ -f "/usr/local/bin/brew" ]; then
+if [ -f "/opt/homebrew/bin/brew" ]; then
 
     if [ -d /usr/local/Cellar/qcachegrind ]; then
         printf "Already Installed\n"

@@ -3,7 +3,7 @@
 # Dependencies
 # pandoc ✘, rust ✘
 
-if [ -f "/usr/local/bin/brew" ]; then
+if [ -f "/opt/homebrew/bin/brew" ]; then
 
     if [ -d /usr/local/Cellar/python@3.9 ]; then
         printf "Already Installed\n"

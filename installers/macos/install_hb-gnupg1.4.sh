@@ -3,7 +3,7 @@
 # Dependencies
 # Required: gettext ✔, gnutls ✘, libassuan ✘, libgcrypt ✘, libgpg-error ✘, libksba ✘, libusb ✘, npth ✘, pinentry ✘
 
-if [ -f "/usr/local/bin/brew" ]; then
+if [ -f "/opt/homebrew/bin/brew" ]; then
 
     if [ -d /usr/local/Cellar/gnupg@1.4 ]; then
         printf "Already Installed\n"
