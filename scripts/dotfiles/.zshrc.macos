@@ -42,7 +42,6 @@ if [ -f ~/.env_vars ]; then
 fi
 
 # Run MOTD
-/usr/local/bin/neofetch
 /usr/local/bin/motd
 
 # The next line updates PATH for the Google Cloud SDK.
