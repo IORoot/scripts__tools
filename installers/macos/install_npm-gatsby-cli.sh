@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ -d /usr/local/lib/node_modules/gatsby-cli ]; then
+if [ -f /opt/homebrew/bin/gatsby ]; then
     printf "Already Installed\n"
 else
     npm install -g gatsby-cli

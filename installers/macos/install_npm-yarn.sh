@@ -1,8 +1,8 @@
 #!/bin/bash
 
-if [ -f /opt/homebrew/bin/nodemon ]; then
+if [ -d /opt/homebrew/bin/yarn ]; then
     printf "Already Installed\n"
 else
-    npm install -g nodemon
+    npm install -g yarn
     printf "DONE\n"
 fi

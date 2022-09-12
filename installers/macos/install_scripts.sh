@@ -23,13 +23,13 @@ do
 
     # NOT A Link
     if [ ! -L $SCRIPT ]; then
-        ln -s ${ABSOLUTEPATH} ${SCRIPT};
+        sudo ln -s ${ABSOLUTEPATH} ${SCRIPT};
         printf "${CYAN}Linked %-50s ${ORANGE} --> ${GREEN} %-6s ${NC}\n" "${SCRIPT}" "${ABSOLUTEPATH}";
-   
+
     # or broken symlink.
     elif [ ! -e $SCRIPT ]; then 
-        mv ${SCRIPT} ${SCRIPT}-`date '+%y%m%d'`
-        ln -s ${ABSOLUTEPATH} ${SCRIPT};
+        sudo mv ${SCRIPT} ${SCRIPT}-`date '+%y%m%d'`
+        sudo ln -s ${ABSOLUTEPATH} ${SCRIPT};
         printf "${CYAN}Linked %-50s ${ORANGE} --> ${GREEN} %-6s ${NC}\n" "${SCRIPT}" "${ABSOLUTEPATH}";
         
     else

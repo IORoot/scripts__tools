@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ -d /usr/local/lib/node_modules/postcss ]; then
+if [ -f /opt/homebrew/bin/postcss ]; then
     printf "Already Installed\n"
 else
     npm install -g postcss postcss-cli
