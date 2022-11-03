@@ -1,4 +1,0 @@
-Deploy
-find_wp_instance
-[SEARCH]
-Search /var/www and return the 1st WP folder that matches.

@@ -1,0 +1,12 @@
+% curl
+
+# Whats my public IP
+curl ifconfig.me 
+
+
+# Show headers
+curl -I http://www.google.com
+
+
+# Download file
+curl http://example.com -o my.file

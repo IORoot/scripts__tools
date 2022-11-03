@@ -37,6 +37,8 @@ install "hb-yarn"
 install "hb-php"
 install "hb-composer"
 install "hb-rmtree"
+install "hb-ohmyposh"
+install "hb-navi"
 
 # NPM 
 install "npm-postcss"

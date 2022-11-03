@@ -1,0 +1,17 @@
+% awk
+
+# Pipe and Print first column
+ps | awk '{print $1}'
+
+
+
+# Change separator and specify file
+awk -F ":" '{print $1}' /etc/passwd
+
+
+# Print multiple columns.
+awk -F ":" '{print $1 "\t" $6 "\t" $7}' /etc/passwd
+
+
+# Private IP.
+hostname -I | awk '{print $1}'

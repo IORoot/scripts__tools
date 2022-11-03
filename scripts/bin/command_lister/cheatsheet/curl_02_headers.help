@@ -1,4 +1,0 @@
-CURL
-curl -I http://www.google.com  
-
-Show headers

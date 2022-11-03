@@ -1,0 +1,4 @@
+% netstat
+
+# Netstat version of List IP Route. 
+netstat -nr -f inet

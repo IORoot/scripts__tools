@@ -1,4 +1,0 @@
-SED
-sed '/delete_matching_line/d' filein.md
-
-Delete line with matching regex.

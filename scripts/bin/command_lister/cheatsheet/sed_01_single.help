@@ -1,4 +1,0 @@
-SED
-sed 's/foo/bar' < filein.md
-
-First regex search/replace in file.

@@ -119,6 +119,7 @@ usage_header() {
 usage(){
     printf "\n"
     usage_header
+    printf "Search for applications with the +s SUID permissions\n"
     print_line "-" $WIDTH
     print_header "Search Methods"
     usage_flag -s --standard "Search standard program locations (overrides [path])"

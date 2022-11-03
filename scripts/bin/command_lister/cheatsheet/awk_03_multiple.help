@@ -1,4 +1,0 @@
-AWK
-awk -F ":" '{print $1 "\t" $6 "\t" $7}' /etc/passwd
-
-Print multiple columns.

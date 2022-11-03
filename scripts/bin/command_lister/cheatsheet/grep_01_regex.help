@@ -1,4 +1,0 @@
-GREP
-grep . -e '/.*hello/'
-
-Regex search in current directory

@@ -1,4 +1,0 @@
-AWK
-hostname -I | awk '{print $1}'
-
-Private IP.

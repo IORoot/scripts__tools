@@ -1,0 +1,13 @@
+% grep
+
+# Word search (recursive)
+grep -rnli "text-to-find-here" ./
+
+
+# Regex search (recursive)
+grep -rnli '/path/to/somewhere/' -e 'pattern'
+
+
+
+# Word search (recursive)
+grep -rnli "text-to-find-here" ./

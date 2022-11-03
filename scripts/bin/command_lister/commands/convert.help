@@ -1,4 +1,0 @@
-FFMpeg
-convert
-[CSV FILE]
-Run video automator against all lines in CSV File.

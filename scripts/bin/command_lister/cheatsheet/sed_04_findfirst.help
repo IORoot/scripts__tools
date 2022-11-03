@@ -1,4 +1,0 @@
-SED
-sed -i '/findThis/s/replaceThis/withThis/g' file.md
-
-Find a line then perform a different regex.

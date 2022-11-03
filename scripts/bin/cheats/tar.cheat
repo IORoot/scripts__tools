@@ -1,0 +1,9 @@
+% tar
+
+# uncompress file to current directory
+tar -xvzf archive.tar.gz
+
+
+
+# Tar-GZip compress directory
+tar -zcvf archive.tar.gz /path/

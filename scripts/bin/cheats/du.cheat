@@ -1,0 +1,9 @@
+% du
+
+# Disk usage of dir with one subdir deep
+du -h --max-depth=1 \| sort -hr
+
+
+
+# Size of current directory
+du -sk .

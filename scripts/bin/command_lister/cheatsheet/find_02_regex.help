@@ -1,4 +1,0 @@
-FIND
-find . -print | grep -i foo
-
-Recursively search for a file

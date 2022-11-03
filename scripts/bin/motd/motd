@@ -112,7 +112,7 @@ if [ -f "/usr/bin/systemctl" ]; then
 fi 
 
 add_line_to_column2 NODE
-add_row_to_column2 UPTIME       $CPU_USAGE
+add_row_to_column2 CPU          $CPU_USAGE
 add_row_to_column2 MEMORY       $MEMORY
 add_row_to_column2 DISK         $DISK
 

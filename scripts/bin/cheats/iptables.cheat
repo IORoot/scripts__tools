@@ -1,0 +1,14 @@
+% iptables
+
+# List running rules
+iptables -L --line-numbers
+
+
+
+# Delete INPUT Rule line 3
+iptables -D INPUT 3
+
+
+
+# Block and IP Address
+iptables -A INPUT -s 203.0.113.51 -j DROP

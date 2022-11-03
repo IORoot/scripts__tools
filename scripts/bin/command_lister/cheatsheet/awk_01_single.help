@@ -1,4 +1,0 @@
-AWK
-ps | awk '{print $1}'
-
-Pipe and Print first column

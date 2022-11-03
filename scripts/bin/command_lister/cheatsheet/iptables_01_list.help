@@ -1,4 +1,0 @@
-IPTABLES
-iptables -L --line-numbers
-
-List running rules

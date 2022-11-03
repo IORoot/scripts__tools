@@ -1,4 +1,0 @@
-AWK
-awk -F ":" '{print $1}' /etc/passwd
-
-Change separator and specify file

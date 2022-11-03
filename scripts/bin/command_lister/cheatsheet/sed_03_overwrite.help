@@ -1,4 +1,0 @@
-SED
-sed -i 's/foo/bar/g' file.md
-
-Global regex search/replace and overwrite file.

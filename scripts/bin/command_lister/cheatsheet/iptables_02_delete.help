@@ -1,4 +1,0 @@
-IPTABLES
-iptables -D INPUT 3
-
-Delete INPUT Rule line 3

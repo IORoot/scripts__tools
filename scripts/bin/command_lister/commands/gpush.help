@@ -1,4 +1,0 @@
-git
-gpush
-[COMMIT MESSAGE]
-git add .; git commit [MSG]; git push; 

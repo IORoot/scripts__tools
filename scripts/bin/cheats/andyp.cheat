@@ -1,0 +1,41 @@
+% andyp
+
+# Helper for defined list of CLI Colours
+cli_colours
+
+
+# Find VM ID with [SEARCH] and run [CMD] on it.
+v
+
+
+# Parse sitemap.xml file and return list of URLS
+sitemap_urls
+
+
+# Shows an ls -la with git info too.
+lsg
+
+
+
+# Top IPs within an Apache log file. 
+log_stats
+
+
+# Converts and image into a 5 second 720p MP4 video.
+img2mp4
+
+# git add .; git commit [MSG]; git push; 
+gpush
+
+
+# Creates infinte CPU Load - USE WITH CAUTION
+cpu_load
+
+
+# Print ANSI codes for CLI colours
+colours
+
+
+
+# Search for SUID applications
+swlist

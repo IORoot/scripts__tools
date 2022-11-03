@@ -1,4 +1,0 @@
-DU
-du -h --max-depth=1 \| sort -hr
-
-Disk usage of dir with one subdir deep

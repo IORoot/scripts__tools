@@ -1,0 +1,4 @@
+% wget
+
+# Download a file from internet
+wget -O file.zip http://www.domain.com/file.zip

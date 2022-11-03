@@ -21,9 +21,14 @@ HISTSIZE=10000
 SAVEHIST=10000
 setopt appendhistory
 
-source $ZSH/oh-my-zsh.sh
+#source $ZSH/oh-my-zsh.sh
 
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+#[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+eval "$(oh-my-posh init zsh --config $(brew --prefix oh-my-posh)/themes/quick-term.omp.json)"
+
+# navi
+eval "$(navi widget zsh)"
 
 if [ -f ~/.paths ]; then
     source ~/.paths
@@ -49,3 +54,7 @@ if [ -f '/Users/andypearson/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/andypearson/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/andypearson/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+
+
+source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh

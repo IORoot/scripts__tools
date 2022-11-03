@@ -1,4 +1,0 @@
-WGET
-wget -O file.zip http://www.domain.com/file.zip
-
-Download a file from internet

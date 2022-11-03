@@ -73,4 +73,5 @@ then
     source ~/aliases.sh
 fi
 
-unalias help
+# navi
+alias n="navi"

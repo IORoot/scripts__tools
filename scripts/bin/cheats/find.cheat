@@ -1,0 +1,13 @@
+% find
+
+# Find all large files.
+find . -size +1G
+
+
+
+# Recursively search for a file
+find . -print | grep -i foo
+
+
+# Recursively search for a file
+find . -name "foo*"
