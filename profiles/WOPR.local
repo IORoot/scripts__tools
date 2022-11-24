@@ -39,6 +39,7 @@ install "hb-composer"
 install "hb-rmtree"
 install "hb-ohmyposh"
 install "hb-navi"
+install "hb-fig"
 
 # NPM 
 install "npm-postcss"
