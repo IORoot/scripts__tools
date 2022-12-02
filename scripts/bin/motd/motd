@@ -28,7 +28,7 @@ file_location
 # │                                      │░
 # └──────────────────────────────────────┘░
 #  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
-. ${SCRIPT_DIR}/logo.conf
+source ${SCRIPT_DIR}/logo.conf
 
 # ┌──────────────────────────────────────┐ 
 # │                                      │░
@@ -36,11 +36,11 @@ file_location
 # │                                      │░
 # └──────────────────────────────────────┘░
 #  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
-. ${SCRIPT_DIR}/components/colours
-. ${SCRIPT_DIR}/components/bar
-. ${SCRIPT_DIR}/components/row
-. ${SCRIPT_DIR}/components/columns
-. ${SCRIPT_DIR}/components/title
+source ${SCRIPT_DIR}/components/colours
+source ${SCRIPT_DIR}/components/bar
+source ${SCRIPT_DIR}/components/row
+source ${SCRIPT_DIR}/components/columns
+source ${SCRIPT_DIR}/components/title
 
 # ┌──────────────────────────────────────┐ 
 # │                                      │░
@@ -91,19 +91,17 @@ plugins()
 plugins
 
 
-COLUMN1_WIDTH=41
+COLUMN1_WIDTH=16
 COLUMN1="${LOGO}"
 
 
 COLUMN2_WIDTH=50
 add_line_to_column2 $HOSTNAME
-add_row_to_column2 HOST         $HOSTNAME
-add_row_to_column2 OS           $OS
-add_row_to_column2 MODEL        $MODEL
-add_row_to_column2 LOCAL_IP     $LOCAL_IP
-add_row_to_column2 PUBLIC_IP    $PUBLIC_IP
+add_row_to_column2 HOST         "🙎 ${HOSTNAME} (${OS})"
+add_row_to_column2 IP           "🏠 $LOCAL_IP ☁️  $PUBLIC_IP"
 
-if [ -f "/usr/bin/systemctl" ]; then
+DAEMON=$(ps -p 1 -o comm=)
+if [ "$DAEMON" == "systemd" ]; then
     add_line_to_column2 SERVICES
     add_row_to_column2 APACHE       $APACHE
     add_row_to_column2 PHP          $PHP
@@ -116,16 +114,8 @@ add_row_to_column2 CPU          $CPU_USAGE
 add_row_to_column2 MEMORY       $MEMORY
 add_row_to_column2 DISK         $DISK
 
-if [ $(crontab -l | grep puppet) ]; then
-    add_line_to_column2 PUPPET
-    add_row_to_column2 RAN          $PUPPET_LASTRAN
-    add_row_to_column2 LOCKED       $PUPPET_LOCKED
-    add_row_to_column2 MESSAGE      $PUPPET_MESSAGE
-fi
-
 add_line_to_column2 "HELP COMMANDS"
-add_row_to_column2 "help" "List custom scripts."
-add_row_to_column2 "cheat" "command cheatsheet."
+add_row_to_column2 "n" "List custom scripts and commands"
 
 add_line_to_column2 "◣◥"
 

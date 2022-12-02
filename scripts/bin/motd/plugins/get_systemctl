@@ -24,11 +24,12 @@ get_systemctl(){
         return 1
     fi
 
-    SERVICENAME=$(systemctl list-unit-files \*"${SEARCH_FOR_SERVICE}"\* | grep service | head -n 1 | cut -d" " -f1 )
+    # SERVICENAME=$(systemctl list-unit-files \*"${SEARCH_FOR_SERVICE}"\* | grep service | head -n 1 | cut -d" " -f1 )
+    SERVICENAME=$( systemctl is-active --quiet \*"${SEARCH_FOR_SERVICE}"\* )
 
     # Is 'systemctl' available?
     if [ -f "$SYSTEMCTL" ]; then
-        SERVICE_STATUS=$(systemctl status "${SERVICENAME}" 2> /dev/null | grep "Active:" | awk '{print $2}')
+        SERVICE_STATUS="✅"
     fi
 
     export declare ${VARIABLE_NAME}=$SERVICE_STATUS
